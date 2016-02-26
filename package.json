@@ -1,6 +1,10 @@
 {
   "name": "danksinatra",
   "version": "1.0.0",
+  "engines": {
+	"node": "4.2.4",
+	"npm": "2.14.12"  
+  },
   "description": "Friendly facebook bot",
   "main": "server.js",
   "scripts": {

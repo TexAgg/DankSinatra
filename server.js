@@ -1,4 +1,5 @@
 // https://github.com/bsansouci/marc-zuckerbot
+// https://github.com/Schmavery/facebook-chat-api
 
 const INFO = require('./info.js');
 const login = require("facebook-chat-api");
@@ -12,7 +13,7 @@ http.createServer(function (request, response) {
 }).listen(process.env.PORT || 5000);
 
 setInterval(function() {
-  http.get("danksinatra.herokuapp.com", function(response) {
+  http.get("http://danksinatra.herokuapp.com", function(response) {
     console.log("pong");
   });
 }, 1800000 * Math.random() + 1200000); // between 20 and 50 min
@@ -23,7 +24,9 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	if(error) return console.error(error);
 	
 	// Stored as a cookie titled 'c_user'
+	// This is the id for My personal account
 	var myID = '100001305344580';
+	
 	var message = {
 		body: "I'm logged in now!",
 		//attachments: {type: "photo", url:"media/monkey.jpg"} 
