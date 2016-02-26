@@ -1,0 +1,10 @@
+{
+	"name": "danksinatra",
+	"description": "Facebook bot",
+	
+	"buildpacks": [
+		{
+			"url": "https://github.com/heroku/heroku-buildpack-nodejs"
+		}
+	]
+}
