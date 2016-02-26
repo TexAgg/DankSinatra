@@ -1,10 +1,9 @@
-// https://github.com/bsansouci/marc-zuckerbot
-// https://github.com/Schmavery/facebook-chat-api
-
 const INFO = require('./info.js');
 const login = require("facebook-chat-api");
 const http = require('http');
 const Firebase = require("firebase");
+const request = require('request');
+const FB = require('fb');
 
 http.createServer(function (request, response) {
   console.log("ping");
@@ -28,15 +27,20 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	
 	// Send me a fb message upon login
 	var message = {
-		body: "I'm logged in now!",
+		body: "I'm logged in now!\n" + Date(),
 		//attachments: {type: "photo", url:"media/monkey.jpg"} 
 	};
 	api.sendMessage(message, INFO.MY_ID);
 	
 	// Respond to messages
 	api.listen(function callback(error, message) {
+		
 		// Echo response
         api.sendMessage(message.body, message.threadID);
+		
+		// Alert me
+		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
+		api.sendMessage(msginfo, INFO.MY_ID);
     });
 	
 });

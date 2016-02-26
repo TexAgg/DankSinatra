@@ -1,13 +1,10 @@
 {
   "name": "danksinatra",
   "version": "1.0.0",
-  
-  "repository": {
-  },
-  
+  "repository": {},
   "engines": {
-	"node": "4.2.4",
-	"npm": "2.14.12"  
+    "node": "4.2.4",
+    "npm": "2.14.12"
   },
   "description": "Friendly facebook bot",
   "main": "server.js",
@@ -17,10 +14,13 @@
   },
   
   "author": "Matt Gaikema",
+  
   "license": "MIT",
   
   "dependencies": {
-	"facebook-chat-api": "git://github.com/schmavery/facebook-chat-api",
-	"firebase": "^2.2.1"
+    "facebook-chat-api": "git://github.com/schmavery/facebook-chat-api",
+    "fb": "^1.0.2",
+    "firebase": "^2.2.1",
+    "request": "^2.53.0"
   }
 }
