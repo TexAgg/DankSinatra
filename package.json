@@ -1,6 +1,10 @@
 {
   "name": "danksinatra",
   "version": "1.0.0",
+  
+  "repository": {
+  },
+  
   "engines": {
 	"node": "4.2.4",
 	"npm": "2.14.12"  
@@ -11,6 +15,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  
   "author": "Matt Gaikema",
-  "license": "MIT"
+  "license": "MIT",
+  
+  "dependencies": {
+	"facebook-chat-api": "git://github.com/schmavery/facebook-chat-api",
+	"firebase": "^2.2.1"
+  }
 }

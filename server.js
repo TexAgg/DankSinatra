@@ -4,7 +4,7 @@
 const INFO = require('./info.js');
 const login = require("facebook-chat-api");
 const http = require('http');
-//const Firebase = require("firebase");
+const Firebase = require("firebase");
 
 http.createServer(function (request, response) {
   console.log("ping");
