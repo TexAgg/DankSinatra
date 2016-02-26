@@ -5,7 +5,7 @@ const Firebase = require("firebase");
 const request = require('request');
 const FB = require('fb');
 
-FB.setAccessToken('CAACEdEose0cBALWtJXIVgej3cHbleXO9KaqoKAXxtEy8vdzUEJMeXW1oKkEMZClSeyBDlYiragnqP5lZA1G79caWR6rjOLP6qK50rRLOrbehYX04XeSPzKF7oQXpwZBWM7EEqCNCU3AwfPl5l1ZAzX5O23nJ2IEzusLFxmSrz3dM3Ir2dJbcCCBv1GErCJIHMmjnvGWrIWcIDXCZB2nMi');
+FB.setAccessToken('CAACEdEose0cBACwErIiUBNC1GVrt5oQEbbd523QasZB81IZA2aTmTGbcW4EpVnCURGNEOkkWC9BE8zS4JqbKM3W6PvqVYnsRAjsYq0hyRZAnTAY38dJxkHVRvA9eATtk7ihPttW6hdPF1PZCOOw5e4xoAWqYOTjCkGHUPjcFUl0zkAxMSbmN7ZAXhi1TKZA1W35081JcwrI5UiXm1ZBpMmX');
 
 http.createServer(function (request, response) {
   console.log("ping");
