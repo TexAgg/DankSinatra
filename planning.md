@@ -7,3 +7,4 @@
 	- [Buildpacks](https://devcenter.heroku.com/articles/buildpacks)
 	- [app.json](https://devcenter.heroku.com/articles/app-json-schema)
 	- [Nodejs support](https://devcenter.heroku.com/articles/nodejs-support#default-web-process-type)
+	- [Heroku local bug](https://github.com/heroku/heroku/issues/1721)
