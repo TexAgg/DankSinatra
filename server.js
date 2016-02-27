@@ -5,7 +5,7 @@ const Firebase = require("firebase");
 const request = require('request');
 const FB = require('fb');
 
-FB.setAccessToken('CAACEdEose0cBACwErIiUBNC1GVrt5oQEbbd523QasZB81IZA2aTmTGbcW4EpVnCURGNEOkkWC9BE8zS4JqbKM3W6PvqVYnsRAjsYq0hyRZAnTAY38dJxkHVRvA9eATtk7ihPttW6hdPF1PZCOOw5e4xoAWqYOTjCkGHUPjcFUl0zkAxMSbmN7ZAXhi1TKZA1W35081JcwrI5UiXm1ZBpMmX');
+//FB.setAccessToken('CAACEdEose0cBACwErIiUBNC1GVrt5oQEbbd523QasZB81IZA2aTmTGbcW4EpVnCURGNEOkkWC9BE8zS4JqbKM3W6PvqVYnsRAjsYq0hyRZAnTAY38dJxkHVRvA9eATtk7ihPttW6hdPF1PZCOOw5e4xoAWqYOTjCkGHUPjcFUl0zkAxMSbmN7ZAXhi1TKZA1W35081JcwrI5UiXm1ZBpMmX');
 
 http.createServer(function (request, response) {
   console.log("ping");
@@ -14,11 +14,12 @@ http.createServer(function (request, response) {
   response.end("");
 }).listen(process.env.PORT || 5000);
 
+// Prevent idling
 setInterval(function() {
   http.get("http://danksinatra.herokuapp.com", function(response) {
     console.log("pong");
   });
-}, 1800000 * Math.random() + 1200000); // between 20 and 50 min
+}, 300000); // 5 min
 
 /**
  * Login to facebook.
@@ -34,12 +35,14 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	};
 	api.sendMessage(message, INFO.MY_ID);
 	
+	/*
 	// Post status on startup
 	FB.api('me/feed', 'post', {message: "I am up an running again with new improvements!"}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
-	
+	*/
+		
 	// Respond to messages
 	api.listen(function callback(error, message) {
 		
@@ -51,6 +54,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		api.sendMessage(msginfo, INFO.MY_ID);
     });
 	
+	/*
 	// Post to facebook
 	var body = 'The time is now ' + Date();
 	var minutes = 120;
@@ -64,5 +68,6 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		console.log('Post Id: ' + res.id);
 	});
 	}, the_interval);
+	*/
 	
 });
