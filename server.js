@@ -4,16 +4,44 @@ const http = require('http');
 const Firebase = require("firebase");
 const request = require('request');
 const FB = require('fb');
+const https = require('https');
 
 // Set access token
-FB.setAccessToken('CAAQF0gVJQWUBAHen6FZAuCZC2ycPIRkovZAUhroQbS2gsdrSG5LDXyxD8N0h4xUOmGI98e6IwVEXAgM7lZCqWdWtTSfm7NZARWMuUaXfz2ZBW0DZCHzxbmlNcvmsTlMAlPXQGTsVs7BvHmSeYTTMJWQ45CZC1Pkb43ZAUqKFkSUwgnqyRIVxgVECDirO9YC7WJGFE0wQcOM6HWwZDZD');
+FB.setAccessToken('CAAQF0gVJQWUBAHH911wEYi268weeOThGWHw5ZBHOZBaSHbTA8roBU0LhOPZAUCQt1JV8zMUYI01HdDLiBN83kIQe9G3EZAEdkUR68nMqrQPsePMq2INsWPVmagT3DJ6kDBbIhOMzHrUYNpsGoi41s6nizskiuKGZCtAFC6j8V99FgHombVvX0');
 
+/*
+function longLiveMyToken(token, appId, clientSecret) {
+  var req = https.request({
+    host: 'graph.facebook.com',
+    path: '/oauth/access_token',
+    method: 'POST'
+  }, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function(chunk) {
+      console.log(chunk);
+    });
+    res.on('end', function() {
+      console.log('status: '+res.status);
+    });
+  });
+  req.end('grant_type=fb_exchange_token'
+    +'&client_id='+encodeURIComponent(appId)
+    +'&client_secret='+encodeURIComponent(clientSecret)
+    +'&fb_exchange_token='+encodeURIComponent(token)
+   );
+};
+
+longLiveMyToken('1132299496800613','14c5dbcb7631cd5e0161ef71b511f961',
+		'CAAQF0gVJQWUBAOpVFmE7z9eMnvAvZBTCtpYZAYtffffgqYfshuUZCwqSe8soC4JBxXEZBQ4EVNmWF27wq8eHT4bdaqqzHHvk5MCGsahJxyZCunyYcGr3DgKthlSm1OnYVWLi50jE2jIj0BVkNG4uHLGAJmR2fvCq1z9ZCvbHouZB4DoQcIHDQZCftFOm5JA3a7sk8jxDQs95nm0Y859b1Ftc');
+*/
+
+/*
 // Get better access token
 FB.api('oauth/access_token', {
     client_id: '1132299496800613',
     client_secret: '14c5dbcb7631cd5e0161ef71b511f961',
     grant_type: 'fb_exchange_token',
-    fb_exchange_token: 'CAAQF0gVJQWUBAHen6FZAuCZC2ycPIRkovZAUhroQbS2gsdrSG5LDXyxD8N0h4xUOmGI98e6IwVEXAgM7lZCqWdWtTSfm7NZARWMuUaXfz2ZBW0DZCHzxbmlNcvmsTlMAlPXQGTsVs7BvHmSeYTTMJWQ45CZC1Pkb43ZAUqKFkSUwgnqyRIVxgVECDirO9YC7WJGFE0wQcOM6HWwZDZD'
+    fb_exchange_token: 'CAAQF0gVJQWUBAOpVFmE7z9eMnvAvZBTCtpYZAYtffffgqYfshuUZCwqSe8soC4JBxXEZBQ4EVNmWF27wq8eHT4bdaqqzHHvk5MCGsahJxyZCunyYcGr3DgKthlSm1OnYVWLi50jE2jIj0BVkNG4uHLGAJmR2fvCq1z9ZCvbHouZB4DoQcIHDQZCftFOm5JA3a7sk8jxDQs95nm0Y859b1Ftc'
 }, function (res) {
     if(!res || res.error) {
         console.log(!res ? 'error occurred' : res.error);
@@ -23,7 +51,7 @@ FB.api('oauth/access_token', {
     var accessToken = res.access_token;
     var expires = res.expires ? res.expires : 0;
 });
-
+*/
 
 http.createServer(function (request, response) {
   console.log("ping");
@@ -54,7 +82,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	api.sendMessage(message, INFO.MY_ID);
 	
 	// Post status on startup
-	FB.api('me/feed', 'post', {message: "TAMU is bad at football"}, function(response){
+	FB.api('me/feed', 'post', {message: "Hey siri wanna bang."}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
@@ -78,7 +106,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	
 	// Post to facebook
 	var body = 'The time is now ' + Date();
-	var minutes = 120;
+	var minutes = 120 * 3;
 	var the_interval = minutes * 60 *1000;
 	setInterval(function(){
 	FB.api('me/feed', 'post', { message: body}, function (res) {
