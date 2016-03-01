@@ -1,4 +1,6 @@
 const INFO = require('./info.js');
+const parse = require('./parse.js');
+
 const login = require("facebook-chat-api");
 const http = require('http');
 const Firebase = require("firebase");
@@ -8,32 +10,6 @@ const https = require('https');
 
 // Set access token
 FB.setAccessToken('CAAQF0gVJQWUBAHH911wEYi268weeOThGWHw5ZBHOZBaSHbTA8roBU0LhOPZAUCQt1JV8zMUYI01HdDLiBN83kIQe9G3EZAEdkUR68nMqrQPsePMq2INsWPVmagT3DJ6kDBbIhOMzHrUYNpsGoi41s6nizskiuKGZCtAFC6j8V99FgHombVvX0');
-
-/*
-function longLiveMyToken(token, appId, clientSecret) {
-  var req = https.request({
-    host: 'graph.facebook.com',
-    path: '/oauth/access_token',
-    method: 'POST'
-  }, function(res) {
-    res.setEncoding('utf8');
-    res.on('data', function(chunk) {
-      console.log(chunk);
-    });
-    res.on('end', function() {
-      console.log('status: '+res.status);
-    });
-  });
-  req.end('grant_type=fb_exchange_token'
-    +'&client_id='+encodeURIComponent(appId)
-    +'&client_secret='+encodeURIComponent(clientSecret)
-    +'&fb_exchange_token='+encodeURIComponent(token)
-   );
-};
-
-longLiveMyToken('1132299496800613','14c5dbcb7631cd5e0161ef71b511f961',
-		'CAAQF0gVJQWUBAOpVFmE7z9eMnvAvZBTCtpYZAYtffffgqYfshuUZCwqSe8soC4JBxXEZBQ4EVNmWF27wq8eHT4bdaqqzHHvk5MCGsahJxyZCunyYcGr3DgKthlSm1OnYVWLi50jE2jIj0BVkNG4uHLGAJmR2fvCq1z9ZCvbHouZB4DoQcIHDQZCftFOm5JA3a7sk8jxDQs95nm0Y859b1Ftc');
-*/
 
 /*
 // Get better access token
@@ -82,7 +58,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	api.sendMessage(message, INFO.MY_ID);
 	
 	// Post status on startup
-	FB.api('me/feed', 'post', {message: "Hey siri wanna bang."}, function(response){
+	FB.api('me/feed', 'post', {message: "I am sentient now."}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
@@ -97,6 +73,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		
 		// Echo response
         api.sendMessage(message.body, message.threadID);
+		//parse.parse(api,message);
 		
 		// Alert me
 		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
