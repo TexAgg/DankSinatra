@@ -5,13 +5,31 @@ const Firebase = require("firebase");
 const request = require('request');
 const FB = require('fb');
 
-//FB.setAccessToken('CAACEdEose0cBACwErIiUBNC1GVrt5oQEbbd523QasZB81IZA2aTmTGbcW4EpVnCURGNEOkkWC9BE8zS4JqbKM3W6PvqVYnsRAjsYq0hyRZAnTAY38dJxkHVRvA9eATtk7ihPttW6hdPF1PZCOOw5e4xoAWqYOTjCkGHUPjcFUl0zkAxMSbmN7ZAXhi1TKZA1W35081JcwrI5UiXm1ZBpMmX');
+// Set access token
+FB.setAccessToken('CAAQF0gVJQWUBAHen6FZAuCZC2ycPIRkovZAUhroQbS2gsdrSG5LDXyxD8N0h4xUOmGI98e6IwVEXAgM7lZCqWdWtTSfm7NZARWMuUaXfz2ZBW0DZCHzxbmlNcvmsTlMAlPXQGTsVs7BvHmSeYTTMJWQ45CZC1Pkb43ZAUqKFkSUwgnqyRIVxgVECDirO9YC7WJGFE0wQcOM6HWwZDZD');
+
+// Get better access token
+FB.api('oauth/access_token', {
+    client_id: '1132299496800613',
+    client_secret: '14c5dbcb7631cd5e0161ef71b511f961',
+    grant_type: 'fb_exchange_token',
+    fb_exchange_token: 'CAAQF0gVJQWUBAHen6FZAuCZC2ycPIRkovZAUhroQbS2gsdrSG5LDXyxD8N0h4xUOmGI98e6IwVEXAgM7lZCqWdWtTSfm7NZARWMuUaXfz2ZBW0DZCHzxbmlNcvmsTlMAlPXQGTsVs7BvHmSeYTTMJWQ45CZC1Pkb43ZAUqKFkSUwgnqyRIVxgVECDirO9YC7WJGFE0wQcOM6HWwZDZD'
+}, function (res) {
+    if(!res || res.error) {
+        console.log(!res ? 'error occurred' : res.error);
+        return;
+    }
+
+    var accessToken = res.access_token;
+    var expires = res.expires ? res.expires : 0;
+});
+
 
 http.createServer(function (request, response) {
   console.log("ping");
   response.writeHead(200, {'Content-Type': 'text/plain'});
   response.write("Hello");
-  response.end("");
+  response.end("from the other side.");
 }).listen(process.env.PORT || 5000);
 
 // Prevent idling
@@ -35,16 +53,19 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	};
 	api.sendMessage(message, INFO.MY_ID);
 	
-	/*
 	// Post status on startup
-	FB.api('me/feed', 'post', {message: "I am up an running again with new improvements!"}, function(response){
+	FB.api('me/feed', 'post', {message: "TAMU is bad at football"}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
-	*/
 		
 	// Respond to messages
 	api.listen(function callback(error, message) {
+		
+		/*
+		Parse message with function declared in another file,
+		parse.js, then return the response.
+		*/
 		
 		// Echo response
         api.sendMessage(message.body, message.threadID);
@@ -54,7 +75,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		api.sendMessage(msginfo, INFO.MY_ID);
     });
 	
-	/*
+	
 	// Post to facebook
 	var body = 'The time is now ' + Date();
 	var minutes = 120;
@@ -68,6 +89,6 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		console.log('Post Id: ' + res.id);
 	});
 	}, the_interval);
-	*/
+	
 	
 });

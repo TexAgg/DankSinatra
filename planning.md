@@ -14,3 +14,4 @@
 	- [Nodejs support](https://devcenter.heroku.com/articles/nodejs-support#default-web-process-type)
 	- [Heroku local bug](https://github.com/heroku/heroku/issues/1721)
 * [Run task at set intervals](http://stackoverflow.com/questions/8011962/schedule-node-js-job-every-five-minutes)
+* [Prevent idling](http://math.stackexchange.com/questions/ask)
