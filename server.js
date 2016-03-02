@@ -91,8 +91,11 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		});
     });
 	
-	
-	// Post to facebook
+	/*
+		Post the time to facebook
+		every 6 hours
+	*/
+	/*
 	var body = 'The time is now ' + Date();
 	var minutes = 120 * 3;
 	var the_interval = minutes * 60 *1000;
@@ -105,6 +108,23 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		console.log('Post Id: ' + res.id);
 	});
 	}, the_interval);
-	
+	*/
 	
 });
+
+/*
+	Post the time to facebook
+	every 6 hours
+*/
+var body = 'The time is now ' + Date();
+var minutes = 120 * 3;
+var the_interval = minutes * 60 *1000;
+setInterval(function(){
+	FB.api('me/feed', 'post', { message: body}, function (res) {
+		if(!res || res.error) {
+			console.log(!res ? 'error occurred' : res.error);
+			return;
+		}
+		console.log('Post Id: ' + res.id);
+	});
+}, the_interval);
