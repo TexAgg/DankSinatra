@@ -18,3 +18,5 @@
 * [Run task at set intervals](http://stackoverflow.com/questions/8011962/schedule-node-js-job-every-five-minutes)
 * [Prevent idling](http://math.stackexchange.com/questions/ask)
 * [Extend access token](https://unhosted.org/adventures/5/Facebook-and-Twitter-from-nodejs.html)
+* Firebase
+	- [Saving data](https://www.firebase.com/docs/web/guide/saving-data.html)

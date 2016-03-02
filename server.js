@@ -8,6 +8,9 @@ const request = require('request');
 const FB = require('fb');
 const https = require('https');
 
+// https://www.firebase.com/docs/web/guide/saving-data.html
+var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
+
 // Set access token
 FB.setAccessToken('CAAQF0gVJQWUBAHH911wEYi268weeOThGWHw5ZBHOZBaSHbTA8roBU0LhOPZAUCQt1JV8zMUYI01HdDLiBN83kIQe9G3EZAEdkUR68nMqrQPsePMq2INsWPVmagT3DJ6kDBbIhOMzHrUYNpsGoi41s6nizskiuKGZCtAFC6j8V99FgHombVvX0');
 
@@ -53,7 +56,6 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	// Send me a fb message upon startup
 	var message = {
 		body: "I'm logged in now!\n" + Date(),
-		//attachments: {type: "photo", url:"media/monkey.jpg"} 
 	};
 	api.sendMessage(message, INFO.MY_ID);
 	
@@ -75,9 +77,18 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
         api.sendMessage(message.body, message.threadID);
 		//parse.parse(api,message);
 		
+		/*
 		// Alert me
 		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
 		api.sendMessage(msginfo, INFO.MY_ID);
+		*/
+		
+		// Add message data to Firebase
+		message_data.push({
+			"From": message.senderName,
+			"Time": Date(),
+			"Message": message.body
+		});
     });
 	
 	
