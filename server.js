@@ -14,24 +14,6 @@ var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
 // Set access token
 FB.setAccessToken('CAAQF0gVJQWUBAHH911wEYi268weeOThGWHw5ZBHOZBaSHbTA8roBU0LhOPZAUCQt1JV8zMUYI01HdDLiBN83kIQe9G3EZAEdkUR68nMqrQPsePMq2INsWPVmagT3DJ6kDBbIhOMzHrUYNpsGoi41s6nizskiuKGZCtAFC6j8V99FgHombVvX0');
 
-/*
-// Get better access token
-FB.api('oauth/access_token', {
-    client_id: '1132299496800613',
-    client_secret: '14c5dbcb7631cd5e0161ef71b511f961',
-    grant_type: 'fb_exchange_token',
-    fb_exchange_token: 'CAAQF0gVJQWUBAOpVFmE7z9eMnvAvZBTCtpYZAYtffffgqYfshuUZCwqSe8soC4JBxXEZBQ4EVNmWF27wq8eHT4bdaqqzHHvk5MCGsahJxyZCunyYcGr3DgKthlSm1OnYVWLi50jE2jIj0BVkNG4uHLGAJmR2fvCq1z9ZCvbHouZB4DoQcIHDQZCftFOm5JA3a7sk8jxDQs95nm0Y859b1Ftc'
-}, function (res) {
-    if(!res || res.error) {
-        console.log(!res ? 'error occurred' : res.error);
-        return;
-    }
-
-    var accessToken = res.access_token;
-    var expires = res.expires ? res.expires : 0;
-});
-*/
-
 http.createServer(function (request, response) {
   console.log("ping");
   response.writeHead(200, {'Content-Type': 'text/plain'});
@@ -59,11 +41,13 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	};
 	api.sendMessage(message, INFO.MY_ID);
 	
+	/*
 	// Post status on startup
 	FB.api('me/feed', 'post', {message: "I am sentient now."}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
+	*/
 		
 	// Respond to messages
 	api.listen(function callback(error, message) {
@@ -90,41 +74,49 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 			"Message": message.body
 		});
     });
-	
-	/*
-		Post the time to facebook
-		every 6 hours
-	*/
-	/*
-	var body = 'The time is now ' + Date();
-	var minutes = 120 * 3;
-	var the_interval = minutes * 60 *1000;
-	setInterval(function(){
-	FB.api('me/feed', 'post', { message: body}, function (res) {
-		if(!res || res.error) {
-			console.log(!res ? 'error occurred' : res.error);
-			return;
-		}
-		console.log('Post Id: ' + res.id);
-	});
-	}, the_interval);
-	*/
-	
 });
 
 /*
-	Post the time to facebook
-	every 6 hours
+	Post time and weather to facebook every 3 hours.
 */
-var body = 'The time is now ' + Date();
-var minutes = 120 * 3;
-var the_interval = minutes * 60 *1000;
+var minutes = 60 * 3;
+var the_interval = minutes * 60 * 1000;
 setInterval(function(){
-	FB.api('me/feed', 'post', { message: body}, function (res) {
-		if(!res || res.error) {
-			console.log(!res ? 'error occurred' : res.error);
-			return;
-		}
-		console.log('Post Id: ' + res.id);
+	http.get('http://api.wunderground.com/api/ecc2911f5f7c6247/conditions/q/TX/Houston.json',function(response){	
+		//console.log(response.statusCode);
+		
+		var body = '';
+		var temp = {};
+		var status = {};
+		var date = new Date().toLocaleTimeString();
+		var update = 'The time is now ' + date + '.\n';
+		
+		// Add json response to string
+		response.on('data',function(chunk){
+			body += chunk;
+		});
+		response.on('end',function(){
+			
+			// Parse data
+			var weather_data = JSON.parse(body);
+			temp = weather_data.current_observation.temp_f;
+			status = weather_data.current_observation.weather;
+			
+			console.log(temp);
+			console.log(status);
+			update += "The current temperature is " + temp + '.\n';
+			update += "The weather is " + status + '.';
+			
+			console.log(update);
+			
+			FB.api('me/feed','post',{message: update},function(response){
+				if(!response || response.error){
+					console.log(!response ? 'error occured': response.error);
+					return;
+				}
+				console.log('Post id: ' + response.id);
+			});
+			
+		});
 	});
-}, the_interval);
+},the_interval);
