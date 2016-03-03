@@ -107,7 +107,7 @@ setInterval(function(){
 			update += "The current temperature is " + temp + '.\n';
 			update += "The weather is " + status + '.';
 			
-			console.log(update);
+			//console.log(update);
 			
 			FB.api('me/feed','post',{message: update},function(response){
 				if(!response || response.error){
