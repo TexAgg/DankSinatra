@@ -17,7 +17,7 @@ FB.setAccessToken('CAAQF0gVJQWUBAHH911wEYi268weeOThGWHw5ZBHOZBaSHbTA8roBU0LhOPZA
 http.createServer(function (request, response) {
   console.log("ping");
   response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.write("Hello");
+  response.write("Hello\n");
   response.end("from the other side.");
 }).listen(process.env.PORT || 5000);
 
@@ -28,7 +28,10 @@ setInterval(function() {
   });
 }, 300000); // 5 min
 
+
 /**
+ * MAIN METHOD
+ * 
  * Login to facebook.
  * Replace INFO.EMAIL and INFO.PASSWORD with the account email and password.
  */
@@ -41,6 +44,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	};
 	api.sendMessage(message, INFO.MY_ID);
 	
+	
 	/*
 	// Post status on startup
 	FB.api('me/feed', 'post', {message: "I am sentient now."}, function(response){
@@ -48,6 +52,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		console.log('Post id: ' + response.id);
 	});
 	*/
+	
 		
 	// Respond to messages
 	api.listen(function callback(error, message) {
@@ -75,6 +80,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		});
     });
 });
+
 
 /*
 	Post time and weather to facebook every 3 hours.
@@ -107,7 +113,7 @@ setInterval(function(){
 			update += "The current temperature is " + temp + '.\n';
 			update += "The weather is " + status + '.';
 			
-			//console.log(update);
+			console.log(update);
 			
 			FB.api('me/feed','post',{message: update},function(response){
 				if(!response || response.error){

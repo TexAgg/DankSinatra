@@ -15,4 +15,4 @@ function parse(api, message){
 	}
 }
 
-exports.parse = parse;
+module.exports.parse = parse;
