@@ -31,4 +31,5 @@
 * Weather Underground API
 	- Key: ecc2911f5f7c6247
 	- [Weather API](http://www.wunderground.com/weather/api/d/docs)
-	
+* [Regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+* [Node CLI](https://nodejs.org/api/readline.html)	
