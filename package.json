@@ -12,11 +12,8 @@
     "test": "node test.js",
     "start": "node server.js"
   },
-  
   "author": "Matt Gaikema",
-  
   "license": "MIT",
-  
   "dependencies": {
     "facebook-chat-api": "git://github.com/schmavery/facebook-chat-api",
     "fb": "^1.0.2",

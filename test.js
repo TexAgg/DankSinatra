@@ -1,5 +1,5 @@
-const readline = require('readline');
 
+/*
 var help = /\\help/;
 var weather = /\\weather/;
 
@@ -19,3 +19,4 @@ rl.question('What do you think of Node.js? ', (answer) => {
   
   rl.close();
 });
+*/
