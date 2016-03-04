@@ -1,3 +1,11 @@
+## Curent plan:
+1. User types in '\help'
+2. Dank offers a list of options
+3. User selects an option, and types the appropriate response
+4. Dank delivers
+
+---
+
 ### Resources:
 * [Firebase](https://danksinatra.firebaseio.com/?page=Hosting)
 * Chat
@@ -22,4 +30,5 @@
 	- [Saving data](https://www.firebase.com/docs/web/guide/saving-data.html)
 * Weather Underground API
 	- Key: ecc2911f5f7c6247
-	- [Weather API](http://www.wunderground.com/weather/api/d/docs)	
+	- [Weather API](http://www.wunderground.com/weather/api/d/docs)
+	

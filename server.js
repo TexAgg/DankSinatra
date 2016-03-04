@@ -9,6 +9,10 @@ const FB = require('fb');
 const https = require('https');
 
 // https://www.firebase.com/docs/web/guide/saving-data.html
+/*
+* Currently, data is organized by each individual message.
+* Should organize it by user or conversation
+*/
 var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
 
 // Set access token
@@ -30,7 +34,7 @@ setInterval(function() {
 
 
 /**
- * MAIN METHOD
+ * MAIN METHOD FOR CHATTING
  * 
  * Login to facebook.
  * Replace INFO.EMAIL and INFO.PASSWORD with the account email and password.
@@ -101,8 +105,8 @@ setInterval(function(){
 		response.on('data',function(chunk){
 			body += chunk;
 		});
-		response.on('end',function(){
-			
+		
+		response.on('end',function(){	
 			// Parse data
 			var weather_data = JSON.parse(body);
 			temp = weather_data.current_observation.temp_f;
