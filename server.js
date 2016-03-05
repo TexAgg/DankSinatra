@@ -7,6 +7,7 @@ const Firebase = require("firebase");
 const request = require('request');
 const FB = require('fb');
 const https = require('https');
+const PythonShell = require('python-shell');
 
 // https://www.firebase.com/docs/web/guide/saving-data.html
 /*
@@ -70,11 +71,22 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
         api.sendMessage(message.body, message.threadID);
 		//parse.parse(api,message);
 		
-		/*
+		
 		// Alert me
 		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
-		api.sendMessage(msginfo, INFO.MY_ID);
-		*/
+		//api.sendMessage(msginfo, INFO.MY_ID);
+		
+		var options = {
+			mode: 'text',
+			script: 'mail.py',
+			pythonOptions: ['-u'],
+			args: [msginfo]
+		};
+		PythonShell.run('mail.py', options, function (err, results) {
+			if (err) throw err;
+			console.log('results: %j', results);
+			console.log('finished');
+		});		
 		
 		// Add message data to Firebase
 		message_data.push({
