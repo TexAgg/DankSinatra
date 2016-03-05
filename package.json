@@ -18,6 +18,7 @@
     "facebook-chat-api": "git://github.com/schmavery/facebook-chat-api",
     "fb": "^1.0.2",
     "firebase": "^2.2.1",
+    "python-shell": "^0.3.0",
     "request": "^2.53.0"
   }
 }

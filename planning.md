@@ -35,3 +35,8 @@
 * [Node CLI](https://nodejs.org/api/readline.html)
 * Gmail API	
 	- https://developers.google.com/gmail/api/v1/reference/users/messages/send#try-it
+* Python
+	- [Node module](https://www.npmjs.com/package/python-shell)
+	- [Sending email](http://www.tutorialspoint.com/python/python_sending_email.htm)
+	- [Sending gmail](http://stackoverflow.com/questions/10147455/how-to-send-an-email-with-gmail-as-provider-using-python)
+	- [Command line arguments](http://www.tutorialspoint.com/python/python_command_line_arguments.htm)	

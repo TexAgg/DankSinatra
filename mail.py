@@ -1,0 +1,36 @@
+print("Hello")
+
+#!/usr/bin/python
+
+import smtplib
+import sys
+
+def main(argv):
+	print 'Number of arguments:', len(sys.argv), 'arguments.'
+	print 'Argument List:', str(sys.argv)
+	sum = 0
+	for item in range(1,len(sys.argv)):
+		sum += int(item)
+	print sum	
+
+main(sys.argv[1:])
+
+sender = 'mgaikema1@gmail.com'
+receivers = ['mgaikema1@gmail.com']
+
+message = """From: Matt Gaikema <mgaikema1@gmail.com>
+To: Matt Gaikema <mgaikema1@gmail.com>
+Subject: New message
+
+You got mail
+"""
+
+try:
+   	smtpObj = smtplib.SMTP('smtp.gmail.com:587')
+   	smtpObj.ehlo()
+   	smtpObj.starttls()
+   	smtpObj.login('mgaikema1@gmail.com', 'appledog')       
+   	smtpObj.sendmail(sender, receivers, message)     
+   	print "Successfully sent email!"
+except Exception:
+   	print "Error: unable to send email"
