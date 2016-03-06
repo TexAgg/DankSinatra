@@ -128,7 +128,7 @@ setInterval(function(){
 			
 			console.log(temp);
 			console.log(status);
-			update += "The current temperature is " + temp + '.\n';
+			update += "The current temperature in Houston is " + temp + '.\n';
 			update += "The weather is " + status + '.';
 			
 			console.log(update);
