@@ -1,23 +1,50 @@
-var PythonShell = require('python-shell');
- 
- var options = {
-	mode: 'text',
-  	script: 'mail.py',
-  	pythonOptions: ['-u'],
-  	args: ['1','2']
+const INFO = require('./info.js');
+
+const FB = require('fb');
+const http = require('http');
+
+FB.setAccessToken(INFO.FB_ACCESS_TOKEN);
+
+// GET
+
+FB.api('4', function (res) {
+  	if(!res || res.error) {
+   		console.log(!res ? 'error occurred' : res.error);
+  		return;
+  	}
+  	console.log(res.id);
+  	console.log(res.name);
+});
+
+
+console.log('test');
+
+// https://developers.facebook.com/tools/explorer/1132299496800613/?session_id=590519631101405
+var options = {
+	host: 'graph.facebook.com',
+	method: 'GET',
+	path: '/v2.5/404041393126881/feed'
 };
- 
-PythonShell.run('mail.py', options, function (err, results) {
-	if (err) throw err;
-	console.log('results: %j', results);
-  	console.log('finished');
+
+var request = http.request(options, function(response){
+	var str = '';
+	console.log('lets do this');
+	
+	console.log(`STATUS: ${response.statusCode}`);
+  	console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
+  	response.setEncoding('utf8');
+
+	response.on('data', function(chunk){
+		str+=chunk;
+		console.log('getting data');
+	});
+	response.on('end', function() {
+		var prof = JSON.parse(str);
+		console.dir(prof);
+	})
+});
+request.on('error', function(){
+	console.log('idk');
 });
 
-/*
-var pyshell = new PythonShell('mail.py');
-
-pyshell.on('message', function (message) {
-  	// received a message sent from the Python script (a simple "print" statement) 
-  	console.log(message);
-});
-*/
+//console.dir(request);

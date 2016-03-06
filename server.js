@@ -17,7 +17,7 @@ const PythonShell = require('python-shell');
 var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
 
 // Set access token
-FB.setAccessToken('CAAQF0gVJQWUBAHH911wEYi268weeOThGWHw5ZBHOZBaSHbTA8roBU0LhOPZAUCQt1JV8zMUYI01HdDLiBN83kIQe9G3EZAEdkUR68nMqrQPsePMq2INsWPVmagT3DJ6kDBbIhOMzHrUYNpsGoi41s6nizskiuKGZCtAFC6j8V99FgHombVvX0');
+FB.setAccessToken(INFO.FB_ACCESS_TOKEN);
 
 http.createServer(function (request, response) {
   console.log("ping");
