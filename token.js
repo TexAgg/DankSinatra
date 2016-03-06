@@ -1,4 +1,8 @@
-// Exchange short-lived access token for longer one
+/*
+	token.js
+	Copy and past fb token here, run 'node token.js', 
+	and copy the output token into info.js
+*/
 
 var https = require('https');
 

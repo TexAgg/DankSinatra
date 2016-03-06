@@ -1,2 +1,2 @@
 # Dank Sinatra
-Putting the "Artificial" in "Artificial Inteligence"
+Putting the "Artificial" in "Artificial Inteligence".

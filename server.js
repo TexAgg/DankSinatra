@@ -1,3 +1,8 @@
+/*
+	server.js
+	Main method. Log in to facebook, listens to messages, and posts.
+*/
+
 const INFO = require('./info.js');
 const parse = require('./parse.js');
 
@@ -62,14 +67,9 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	// Respond to messages
 	api.listen(function callback(error, message) {
 		
-		/*
-		Parse message with function declared in another file,
-		parse.js, then return the response.
-		*/
-		
 		// Echo response
-        api.sendMessage(message.body, message.threadID);
-		//parse.parse(api,message);
+        //api.sendMessage(message.body, message.threadID);
+		parse.parse(api,message);
 		
 		
 		// Alert me
@@ -84,8 +84,8 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		};
 		PythonShell.run('mail.py', options, function (err, results) {
 			if (err) throw err;
-			console.log('results: %j', results);
-			console.log('finished');
+			console.log('Python results: %j', results);
+			console.log('Python finished');
 		});		
 		
 		// Add message data to Firebase

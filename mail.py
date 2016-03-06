@@ -1,6 +1,8 @@
-print("Hello")
+# mail.py
+# I couldn't figue out how to send emails with node,
+# so I send them with python
 
-#!/usr/bin/python
+#print("Hello")
 
 import smtplib
 import sys

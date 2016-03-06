@@ -1,3 +1,9 @@
+/*
+	info.js
+	Since I don't know how environmental variables work,
+	most sensitive information is stored here.
+*/
+
 const email = "mgaikema1@gmail.com";
 const password = "appledog";
 const myID = '100001305344580';	// This is the id for My personal account
