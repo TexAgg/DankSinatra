@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+	<title>Mail Filters</title>
+	<id>tag:mail.google.com,2008:filters:1457286710868</id>
+	<updated>2016-03-06T17:52:04Z</updated>
+	<author>
+		<name>Matt Gaikema</name>
+		<email>mgaikema1@gmail.com</email>
+	</author>
+	<entry>
+		<category term='filter'></category>
+		<title>Mail Filter</title>
+		<id>tag:mail.google.com,2008:filter:1457286710868</id>
+		<updated>2016-03-06T17:52:04Z</updated>
+		<content></content>
+		<apps:property name='subject' value='Dank update'/>
+		<apps:property name='label' value='Dank'/>
+		<apps:property name='sizeOperator' value='s_sl'/>
+		<apps:property name='sizeUnit' value='s_smb'/>
+	</entry>
+</feed>
