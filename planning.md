@@ -10,7 +10,7 @@
 * [Firebase](https://danksinatra.firebaseio.com/?page=Hosting)
 * Chat
 	- Chat Api on [github](https://github.com/Schmavery/facebook-chat-api)
-	- [Api again](https://www.npmjs.com/package/facebook-chat-api)
+	- API on [NPM](https://www.npmjs.com/package/facebook-chat-api)
 * [Existing bot](https://github.com/bsansouci/marc-zuckerbot/blob/master/server.js)
 * Posting
 	- [Example](http://code.runnable.com/UTlPM1-f2W1TAABY/post-on-facebook)

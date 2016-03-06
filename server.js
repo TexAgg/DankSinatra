@@ -87,15 +87,10 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 			console.log('Python results: %j', results);
 			console.log('Python finished');
 		});		
-		
-		/*
+
 		// Add message data to Firebase
-		message_data.push({
-			"From": message.senderName,
-			"Time": Date(),
-			"Message": message.body
-		});
-		*/
+		message_data.push(message);
+		
     });
 });
 
