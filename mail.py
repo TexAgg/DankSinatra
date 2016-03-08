@@ -36,7 +36,7 @@ def main(argv):
 		smtpObj = smtplib.SMTP('smtp.gmail.com:587')
 		smtpObj.ehlo()
 		smtpObj.starttls()
-		smtpObj.login('mgaikema1@gmail.com', 'appledog')       
+		smtpObj.login('mgaikema1@gmail.com', 'K!ngkunta')       
 		smtpObj.sendmail(sender, receivers, message)     
 		print "Successfully sent email!"
 	except Exception:

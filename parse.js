@@ -6,6 +6,9 @@
 const login = require("facebook-chat-api");
 const cool = require('cool-ascii-faces');
 const http = require('http');
+const Firebase = require("firebase");
+
+var message_reqs = new Firebase("https://danksinatra.firebaseio.com//Requests");
 
 // Make choices.greet case insensitive
 var choices = {
@@ -35,12 +38,16 @@ function parse(api, message){
 		response += "\\weather: See the current weather in Houston.\n";
 		response += "\\date: See the current date.\n";
 		response += "\\face: Send a cool ascii face.";
+		
+		message_reqs.push(message);
+		console.log("Sending " + response);		
 		api.sendMessage(response, message.threadID);
-		console.log("Sending " + response);
 	}
 	
 	else if (choices.cool.test(message.body)){
 		response = cool();
+		
+		message_reqs.push(message);
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}
@@ -63,6 +70,7 @@ function parse(api, message){
 				response += "The current temperature in Houston is " + temp + ".\n";
 				response += "The weather is " + status + ".";
 				
+				message_reqs.push(message);		
 				console.dir("Sending " + response);
 				api.sendMessage(response, message.threadID);
 			});
@@ -72,6 +80,7 @@ function parse(api, message){
 	else if (choices.date.test(message.body)){
 		//var date = new Date();
 		response = "The date is " + Date() + ".";
+		message_reqs.push(message);		
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}
