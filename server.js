@@ -88,7 +88,8 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 			console.log('Python finished');
 		});		
 
-		// Add message data to Firebase
+		// Add message to Firebase if they aren't from me
+		//if(message.senderID != '100001305344580')
 		message_data.push(message);
 		
     });

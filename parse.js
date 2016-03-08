@@ -24,6 +24,8 @@ var choices = {
 /*
 	TODO: instead of sending message from here, 
 	pass the response back to server.js
+	
+	TODO: Simulate conversation. Use IDs and DB
 */
 function parse(api, message){
 	var response = '';
@@ -44,16 +46,16 @@ function parse(api, message){
 	}
 	
 	else if (choices.weather.test(message.body)){
-		http.get('http://api.wunderground.com/api/ecc2911f5f7c6247/conditions/q/TX/Houston.json',function(response){
+		http.get('http://api.wunderground.com/api/ecc2911f5f7c6247/conditions/q/TX/Houston.json',function(res){
 			var body = '';
-			var temp = {};
-			var status = {};
+			var temp = '';
+			var status = '';
 			
-			response.on('data', function(chunk){
+			res.on('data', function(chunk){
 				body += chunk;
 			});
 			
-			response.on('end', function(){
+			res.on('end', function(){
 				var weather_data = JSON.parse(body);
 				temp = weather_data.current_observation.temp_f;
 				status = weather_data.current_observation.weather;
@@ -61,7 +63,7 @@ function parse(api, message){
 				response += "The current temperature in Houston is " + temp + ".\n";
 				response += "The weather is " + status + ".";
 				
-				console.log("Sending " + response);
+				console.dir("Sending " + response);
 				api.sendMessage(response, message.threadID);
 			});
 		});
