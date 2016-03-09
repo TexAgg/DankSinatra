@@ -10,7 +10,7 @@ const Firebase = require("firebase");
 
 var message_reqs = new Firebase("https://danksinatra.firebaseio.com//Requests");
 
-// Make choices.greet case insensitive
+// Requests
 var choices = {
 	help: /\\help/,
 	
@@ -29,6 +29,10 @@ var choices = {
 	pass the response back to server.js
 	
 	TODO: Simulate conversation. Use IDs and DB
+	
+	TODO: Refactor message matching. 
+	If the sender sends a request, add the message to the
+	database in an user-specific path. 
 */
 function parse(api, message){
 	var response = '';
@@ -84,6 +88,8 @@ function parse(api, message){
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}
+	
+	// return response;
 }
 
 module.exports.parse = parse;
