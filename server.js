@@ -8,7 +8,7 @@ const parse = require('./parse.js');
 
 const login = require("facebook-chat-api");
 const http = require('http');
-const Firebase = require("firebase");
+//const Firebase = require("firebase");
 const request = require('request');
 const FB = require('fb');
 const https = require('https');
@@ -19,7 +19,7 @@ const PythonShell = require('python-shell');
 * Currently, data is organized by each individual message.
 * Should organize it by user or conversation
 */
-var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
+//var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
 
 // Set access token
 FB.setAccessToken(INFO.FB_ACCESS_TOKEN);
@@ -90,7 +90,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 
 		// Add message to Firebase if they aren't from me
 		//if(message.senderID != '100001305344580')
-		message_data.push(message);
+		//message_data.push(message);
 		
     });
 });
