@@ -100,7 +100,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 	Post time and weather to facebook every 3 hours.
 	BUG: Time is way off
 */
-var minutes = 60 * 4;
+var minutes = 60 * 8;
 var the_interval = minutes * 60 * 1000;
 setInterval(function(){
 	http.get('http://api.wunderground.com/api/ecc2911f5f7c6247/conditions/q/TX/Houston.json',function(response){	
