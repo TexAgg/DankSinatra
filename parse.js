@@ -8,7 +8,7 @@ const cool = require('cool-ascii-faces');
 const http = require('http');
 const Firebase = require("firebase");
 
-var message_reqs = new Firebase("https://danksinatra.firebaseio.com//Requests");
+var message_reqs = new Firebase(process.env.DANK_SINATRA_FIREBASE + '//Requests');
 
 // Requests
 var choices = {
@@ -57,7 +57,7 @@ function parse(api, message){
 	}
 	
 	else if (choices.weather.test(message.body)){
-		http.get('http://api.wunderground.com/api/ecc2911f5f7c6247/conditions/q/TX/Houston.json',function(res){
+		http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/TX/Houston.json',function(res){
 			var body = '';
 			var temp = '';
 			var status = '';

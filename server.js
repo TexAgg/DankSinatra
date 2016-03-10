@@ -13,6 +13,7 @@ const request = require('request');
 const FB = require('fb');
 const https = require('https');
 const PythonShell = require('python-shell');
+require('dotenv').config();
 
 // https://www.firebase.com/docs/web/guide/saving-data.html
 /*
@@ -22,7 +23,7 @@ const PythonShell = require('python-shell');
 //var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
 
 // Set access token
-FB.setAccessToken(INFO.FB_ACCESS_TOKEN);
+FB.setAccessToken(process.env.FB_TOKEN);
 
 http.createServer(function (request, response) {
   console.log("ping");
@@ -45,14 +46,14 @@ setInterval(function() {
  * Login to facebook.
  * Replace INFO.EMAIL and INFO.PASSWORD with the account email and password.
  */
-login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, api) {
+login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callback (error, api) {
 	if(error) return console.error(error);
 	
 	// Send me a fb message upon startup
 	var message = {
 		body: "I'm logged in now!\n" + Date(),
 	};
-	api.sendMessage(message, INFO.MY_ID);
+	api.sendMessage(message, process.env.MY_ID);
 	
 	
 	/*
@@ -89,7 +90,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 		});		
 
 		// Add message to Firebase if they aren't from me
-		//if(message.senderID != '100001305344580')
+		//if(message.senderID != process.env.MY_ID)
 		//message_data.push(message);
 		
     });
@@ -103,7 +104,7 @@ login({email: INFO.EMAIL, password: INFO.PASSWORD}, function callback (error, ap
 var minutes = 60 * 8;
 var the_interval = minutes * 60 * 1000;
 setInterval(function(){
-	http.get('http://api.wunderground.com/api/ecc2911f5f7c6247/conditions/q/TX/Houston.json',function(response){	
+	http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/TX/Houston.json',function(response){	
 		//console.log(response.statusCode);
 		
 		var body = '';
