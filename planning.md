@@ -43,3 +43,4 @@
 * Environmental variables
 	- [Setup](https://medium.com/@rafaelvidaurre/managing-environment-variables-in-node-js-2cb45a55195f#.72xagrxyy)
 	- [Heroku config](http://stackoverflow.com/questions/21831945/heroku-node-env-environment-variable)
+* [Get git commit count](http://stackoverflow.com/questions/677436/how-to-get-the-git-commit-count)	
