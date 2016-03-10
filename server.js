@@ -3,7 +3,10 @@
 	Main method. Log in to facebook, listens to messages, and posts.
 */
 
-const INFO = require('./info.js');
+// Set environment variables
+require('dotenv').config();
+
+//const INFO = require('./info.js');
 const parse = require('./parse.js');
 
 const login = require("facebook-chat-api");
@@ -13,14 +16,13 @@ const request = require('request');
 const FB = require('fb');
 const https = require('https');
 const PythonShell = require('python-shell');
-require('dotenv').config();
 
 // https://www.firebase.com/docs/web/guide/saving-data.html
 /*
 * Currently, data is organized by each individual message.
 * Should organize it by user or conversation
 */
-//var message_data = new Firebase("https://danksinatra.firebaseio.com//Messages");
+//var message_data = new Firebase(process.env.DANK_SINATRA_FIREBASE + "//Messages");
 
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
@@ -44,7 +46,6 @@ setInterval(function() {
  * MAIN METHOD FOR CHATTING
  * 
  * Login to facebook.
- * Replace INFO.EMAIL and INFO.PASSWORD with the account email and password.
  */
 login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callback (error, api) {
 	if(error) return console.error(error);
@@ -58,7 +59,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 	
 	/*
 	// Post status on startup
-	FB.api('me/feed', 'post', {message: "I am sentient now."}, function(response){
+	FB.api('me/feed', 'post', {message: "Han Solo is killed by his son, Kylo Ren."}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
@@ -75,7 +76,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 		
 		// Alert me
 		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
-		//api.sendMessage(msginfo, INFO.MY_ID);
+		//api.sendMessage(msginfo, process.env.MY_ID);
 		
 		var options = {
 			mode: 'text',
