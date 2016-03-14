@@ -45,7 +45,6 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Extend access token](https://unhosted.org/adventures/5/Facebook-and-Twitter-from-nodejs.html)
 
 ### Weather Underground API
-- Key: ecc2911f5f7c6247
 - [Weather API](http://www.wunderground.com/weather/api/d/docs)
 
 ### Regex
@@ -77,3 +76,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Merging changes](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 
 ---
+
+## Disclaimer
+The code is not well written.
+This is a personal project mostly meant to familiarize myself with public API's and Node.JS.
