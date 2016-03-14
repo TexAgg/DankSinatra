@@ -35,7 +35,7 @@ function parse(api, message){
 	
 	// Add child for the threadID and append message there
 	chatsDB.child(message.threadID).set(message);
-	usersDB.child(message.threadID).set(message);
+	usersDB.child(message.senderID).set(message);
 	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
