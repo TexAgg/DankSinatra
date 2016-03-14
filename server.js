@@ -15,7 +15,7 @@ const http = require('http');
 const request = require('request');
 const FB = require('fb');
 const https = require('https');
-const PythonShell = require('python-shell');
+//const PythonShell = require('python-shell');
 
 // https://www.firebase.com/docs/web/guide/saving-data.html
 /*
