@@ -78,6 +78,8 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
 		//api.sendMessage(msginfo, process.env.MY_ID);
 		
+		/*
+		// Python email no longer works
 		var options = {
 			mode: 'text',
 			script: 'mail.py',
@@ -88,7 +90,8 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 			if (err) throw err;
 			console.log('Python results: %j', results);
 			console.log('Python finished');
-		});		
+		});
+		*/		
 
 		// Add message to Firebase if they aren't from me
 		//if(message.senderID != process.env.MY_ID)

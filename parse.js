@@ -46,7 +46,7 @@ function parse(api, message){
 		response += "\\date: See the current date.\n";
 		response += "\\face: Send a cool ascii face.";
 		
-		message_reqs.push(message);
+		//message_reqs.push(message);
 		console.log("Sending " + response);		
 		api.sendMessage(response, message.threadID);
 	}
@@ -91,8 +91,6 @@ function parse(api, message){
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}
-	
-	// return response;
 }
 
 module.exports.parse = parse;
