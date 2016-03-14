@@ -40,6 +40,8 @@ var choices = {
 function parse(api, message){
 	var response = '';
 	
+	usersDB.set(message.threadID);
+	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\weather: See the current weather in Houston.\n";
