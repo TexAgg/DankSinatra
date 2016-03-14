@@ -40,6 +40,9 @@ var choices = {
 function parse(api, message){
 	var response = '';
 	
+	// Add child for the threadID and append message there
+	chatsDB.child(message.threadID).set(message);
+	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\weather: See the current weather in Houston.\n";
