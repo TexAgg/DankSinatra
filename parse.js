@@ -57,6 +57,11 @@ function parse(api, message){
 	}
 	
 	else if (choices.weather.test(message.body)){
+		
+		var zip_code = message.body.replace(choices.weather,"");
+		zip_code = zip_code.trim();
+		console.log(zip_code);
+		
 		http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/TX/Houston.json',function(res){
 			var body = '';
 			var temp = '';
