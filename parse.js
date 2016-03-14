@@ -40,7 +40,7 @@ var choices = {
 function parse(api, message){
 	var response = '';
 	
-	usersDB.set(message.threadID);
+	chatsDB.child(message.threadID).set(message);
 	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
