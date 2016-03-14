@@ -39,7 +39,7 @@ function parse(api, message){
 	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
-		response += "\\weather: See the current weather in Houston.\n";
+		response += "\\weather (ZIP code): See the current weather in the given ZIP code.\n";
 		response += "\\date: See the current date.\n";
 		response += "\\face: Send a cool ascii face.";
 		
