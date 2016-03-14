@@ -8,7 +8,8 @@ const cool = require('cool-ascii-faces');
 const http = require('http');
 const Firebase = require("firebase");
 
-var message_reqs = new Firebase(process.env.DANK_SINATRA_FIREBASE + '//Requests');
+var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
+var message_reqs = db.child("Requests");
 
 // Requests
 var choices = {
