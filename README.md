@@ -62,6 +62,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Sending email](http://www.tutorialspoint.com/python/python_sending_email.htm)
 - [Sending gmail](http://stackoverflow.com/questions/10147455/how-to-send-an-email-with-gmail-as-provider-using-python)
 - [Command line arguments](http://www.tutorialspoint.com/python/python_command_line_arguments.htm)
+- [Access environment variables](http://stackoverflow.com/questions/4906977/how-to-access-environment-variables-from-python)
 
 ### Environmental variables
 - [Setup](https://medium.com/@rafaelvidaurre/managing-environment-variables-in-node-js-2cb45a55195f#.72xagrxyy)
