@@ -62,26 +62,41 @@ function parse(api, message){
 		zip_code = zip_code.trim();
 		console.log(zip_code);
 		
-		http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/TX/Houston.json',function(res){
+		http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/' + zip_code + '.json',function(res){
 			var body = '';
 			var temp = '';
 			var status = '';
+			var city = '';
 			
 			res.on('data', function(chunk){
 				body += chunk;
 			});
 			
+			res.on('error', function(error){
+				console.error(error.message);
+				api.sendMessage("Invalid argument!",message.threadID);
+			});			
+			
 			res.on('end', function(){
 				var weather_data = JSON.parse(body);
-				temp = weather_data.current_observation.temp_f;
-				status = weather_data.current_observation.weather;
+				console.log(weather_data);
 				
-				response += "The current temperature in Houston is " + temp + ".\n";
-				response += "The weather is " + status + ".";
-				
-				message_reqs.push(message);		
-				console.dir("Sending " + response);
-				api.sendMessage(response, message.threadID);
+				if (!weather_data.response.error){
+					temp = weather_data.current_observation.temp_f;
+					status = weather_data.current_observation.weather;
+					city = weather_data.current_observation.display_location.city;
+					
+					response += "The current temperature in " + city + " is " + temp + ".\n";
+					response += "The weather is " + status + ".";
+					
+					message_reqs.push(message);		
+					console.dir("Sending " + response);
+					api.sendMessage(response, message.threadID);
+				}
+				else{
+					response = JSON.stringify(weather_data.response.error);
+					api.sendMessage(response,message.threadID);
+				}
 			});
 		});
 	}
