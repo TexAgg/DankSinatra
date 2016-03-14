@@ -40,6 +40,7 @@ var choices = {
 function parse(api, message){
 	var response = '';
 	
+	// Add child for the threadID and append message there
 	chatsDB.child(message.threadID).set(message);
 	
 	if (choices.help.test(message.body)){
