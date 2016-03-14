@@ -13,6 +13,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ### Firebase
 - [Firebase](https://danksinatra.firebaseio.com/?page=Hosting)
 - [Saving data](https://www.firebase.com/docs/web/guide/saving-data.html)
+- [Retrieving data](https://www.firebase.com/docs/web/guide/retrieving-data.html)
 
 ### Chat 
 - Chat Api on [github](https://github.com/Schmavery/facebook-chat-api)
@@ -72,5 +73,6 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Fix gitignore](http://stackoverflow.com/questions/11451535/gitignore-not-working)
 - [Delete commit history](https://hellocoding.wordpress.com/2015/01/19/delete-all-commit-history-github/)
 - [Remove a remote](https://help.github.com/articles/removing-a-remote/)
+- [Merging changes](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 
 ---

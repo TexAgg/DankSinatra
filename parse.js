@@ -10,6 +10,8 @@ const Firebase = require("firebase");
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
+var usersDB = db.child("users");
+var chatsDB = db.child("chats");
 
 // Requests
 var choices = {
