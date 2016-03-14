@@ -78,6 +78,10 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ### HTML
 - [Displaying static HTML with Express](http://expressjs.com/en/starter/static-files.html)
 
+### Generating images
+- [node-gd npm](https://www.npmjs.com/package/node-gd) (does not work on windows)
+- [node-canvas](https://github.com/Automattic/node-canvas)
+
 ---
 
 ## Disclaimer
