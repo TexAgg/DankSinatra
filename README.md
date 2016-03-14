@@ -75,6 +75,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Remove a remote](https://help.github.com/articles/removing-a-remote/)
 - [Merging changes](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 
+### HTML
+- [Displaying static HTML with Express](http://expressjs.com/en/starter/static-files.html)
+
 ---
 
 ## Disclaimer
