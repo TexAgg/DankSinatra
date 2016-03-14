@@ -27,21 +27,15 @@ var choices = {
 	cool: /\\face/
 };
 
-/*
-	TODO: instead of sending message from here, 
-	pass the response back to server.js
-	
+/*	
 	TODO: Simulate conversation. Use IDs and DB
-	
-	TODO: Refactor message matching. 
-	If the sender sends a request, add the message to the
-	database in an user-specific path. 
 */
 function parse(api, message){
 	var response = '';
 	
 	// Add child for the threadID and append message there
 	chatsDB.child(message.threadID).set(message);
+	usersDB.child(message.threadID).set(message);
 	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
@@ -49,7 +43,7 @@ function parse(api, message){
 		response += "\\date: See the current date.\n";
 		response += "\\face: Send a cool ascii face.";
 		
-		//message_reqs.push(message);
+		message_reqs.push(message);
 		console.log("Sending " + response);		
 		api.sendMessage(response, message.threadID);
 	}
