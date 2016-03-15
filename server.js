@@ -17,12 +17,6 @@ const FB = require('fb');
 const https = require('https');
 //const PythonShell = require('python-shell');
 
-// https://www.firebase.com/docs/web/guide/saving-data.html
-/*
-* Currently, data is organized by each individual message.
-* Should organize it by user or conversation
-*/
-//var message_data = new Firebase(process.env.DANK_SINATRA_FIREBASE + "//Messages");
 
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
@@ -92,10 +86,6 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 			console.log('Python finished');
 		});
 		*/		
-
-		// Add message to Firebase if they aren't from me
-		//if(message.senderID != process.env.MY_ID)
-		//message_data.push(message);
 		
     });
 });
