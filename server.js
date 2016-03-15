@@ -97,10 +97,10 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 
 
 /*
-	Post time and weather to facebook every 3 hours.
+	Post time and weather to facebook every 12 hours.
 	BUG: Time is way off
 */
-var minutes = 60 * 8;
+var minutes = 60 * 12;
 var the_interval = minutes * 60 * 1000;
 setInterval(function(){
 	http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/TX/Houston.json',function(response){	
