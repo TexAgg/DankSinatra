@@ -1,11 +1,9 @@
 node_modules
-public
 .env
 test.js
 .vscode
 weather_example.json
 gmail
 tests
-mailFilters.xml
 mail.py
 media
