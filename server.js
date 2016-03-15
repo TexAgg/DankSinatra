@@ -29,8 +29,7 @@ fs.readFile('html/index.html', function(err, html){
 	response.writeHead(200, {'Content-Type': 'text/html'});
 	response.write(html);
 	response.end();
-	//response.write("Hello\n");
-	//response.end("from the other side.");
+
 	}).listen(process.env.PORT || 5000);
 });
 
