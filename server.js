@@ -22,7 +22,7 @@ const fs = require('fs');
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
 
-fs.readFile('html/index.html', function(err, html){
+fs.readFile('static/index.html', function(err, html){
 	if(err) throw err;
 	http.createServer(function (request, response) {
 	console.log("ping");
