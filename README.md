@@ -95,6 +95,12 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Convert SVG to PNG](https://github.com/domenic/svg2png)
 - [Possible npm package for saving SVGs](https://www.npmjs.com/package/svgutils)
 
+### Google
+- [npm module that does not use Google api](https://github.com/jprichardson/node-google)
+- [npm module that does use Google api](https://github.com/aykutyaman/google-search)
+- [npm google scraper](https://www.npmjs.com/package/google-search-scraper)
+- [Lol here's what I searched to find these links](https://www.google.com/search?q=nodejs+do+a+google+search&oq=nodejs+do+a+google+search&aqs=chrome..69i57.4485j0j7&sourceid=chrome&ie=UTF-8)
+
 ---
 
 ## Disclaimer
