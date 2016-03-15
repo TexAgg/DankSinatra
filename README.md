@@ -90,6 +90,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [node-gd npm](https://www.npmjs.com/package/node-gd) (does not work on windows)
 - [node-canvas](https://github.com/Automattic/node-canvas)
 
+### SVG
+- [Method draw](http://editor.method.ac/)
+
 ---
 
 ## Disclaimer
