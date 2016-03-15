@@ -1,4 +1,10 @@
+body
+{
+	background: #4d88ff; 
+}
+
 #mycanvas
 {
 	border: solid 1px;
+	background: #ffffff;
 }
