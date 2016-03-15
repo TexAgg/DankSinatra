@@ -11,10 +11,10 @@ const parse = require('./parse.js');
 
 const login = require("facebook-chat-api");
 const http = require('http');
-//const Firebase = require("firebase");
-//const request = require('request');
 const FB = require('fb');
 const https = require('https');
+//const Firebase = require("firebase");
+//const request = require('request');
 //const PythonShell = require('python-shell');
 
 

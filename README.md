@@ -77,6 +77,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 
 ### HTML
 - [Displaying static HTML with Express](http://expressjs.com/en/starter/static-files.html)
+- [Displaying static HTML without Express](http://stackoverflow.com/questions/4720343/loading-basic-html-in-node-js)
 
 ### Generating images
 - [node-gd npm](https://www.npmjs.com/package/node-gd) (does not work on windows)
