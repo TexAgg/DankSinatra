@@ -23,6 +23,7 @@
     "express": "^4.13.4",
     "facebook-chat-api": "git://github.com/schmavery/facebook-chat-api",
     "fb": "^1.0.2",
-    "firebase": "^2.2.1"
+    "firebase": "^2.2.1",
+    "request": "^2.69.0"
   }
 }
