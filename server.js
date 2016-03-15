@@ -10,8 +10,8 @@ require('dotenv').config();
 const parse = require('./parse.js');
 
 const login = require("facebook-chat-api");
-const http = require('http');
 const FB = require('fb');
+const http = require('http');
 const https = require('https');
 //const Firebase = require("firebase");
 //const request = require('request');
