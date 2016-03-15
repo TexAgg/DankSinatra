@@ -6,7 +6,6 @@
 // Set environment variables
 require('dotenv').config();
 
-//const INFO = require('./info.js');
 const parse = require('./parse.js');
 
 const login = require("facebook-chat-api");
