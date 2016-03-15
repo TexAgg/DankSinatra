@@ -92,6 +92,8 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 
 ### SVG
 - [Method draw](http://editor.method.ac/)
+- [Convert SVG to PNG](https://github.com/domenic/svg2png)
+- [Possible npm package for saving SVGs](https://www.npmjs.com/package/svgutils)
 
 ---
 
