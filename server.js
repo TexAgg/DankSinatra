@@ -13,6 +13,7 @@ const login = require("facebook-chat-api");
 const FB = require('fb');
 const http = require('http');
 const https = require('https');
+const fs = require('fs');
 //const Firebase = require("firebase");
 //const request = require('request');
 //const PythonShell = require('python-shell');
@@ -21,12 +22,17 @@ const https = require('https');
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
 
-http.createServer(function (request, response) {
-  console.log("ping");
-  response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.write("Hello\n");
-  response.end("from the other side.");
-}).listen(process.env.PORT || 5000);
+fs.readFile('html/index.html', function(err, html){
+	if(err) throw err;
+	http.createServer(function (request, response) {
+	console.log("ping");
+	response.writeHead(200, {'Content-Type': 'text/html'});
+	response.write(html);
+	response.end();
+	//response.write("Hello\n");
+	//response.end("from the other side.");
+	}).listen(process.env.PORT || 5000);
+});
 
 // Prevent idling
 setInterval(function() {
