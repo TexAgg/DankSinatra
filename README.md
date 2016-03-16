@@ -38,8 +38,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Example](http://code.runnable.com/UTlPM1-f2W1TAABY/post-on-facebook)
 - [With nodejs](http://stackoverflow.com/questions/26605805/automatic-post-to-my-facebook-page-from-node-js-server)
 - [Third party node sdk](https://github.com/Thuzi/facebook-node-sdk/)
-- [Another aparent clone](https://github.com/amachang/facebook-node-sdk)
-- [Fork](https://github.com/node-facebook/facebook-node-sdk)
+- [Posting images](https://developers.facebook.com/docs/graph-api/reference/user/photos/)
 
 ### Heroku
 - [Buildpacks](https://devcenter.heroku.com/articles/buildpacks)

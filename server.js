@@ -156,7 +156,7 @@ setInterval(function(){
 		var trashURL = data.items[Math.floor(Math.random()*10)].link;
 		console.log(trashURL);
 		
-		FB.api('me/feed', 'post', {message: trashURL}, function(response){
+		FB.api('me/photos', 'post', {url: trashURL}, function(response){
 			if(!response || response.error){
 				console.log(!response ? 'error occured': response.error);
 				return;
