@@ -13,14 +13,16 @@ const FB = require('fb');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
-//const Firebase = require("firebase");
-//const request = require('request');
-//const PythonShell = require('python-shell');
-
+const querystring = require('querystring');
+const Client = require('node-rest-client').Client;
 
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
 
+// Use for REST module
+var client = new Client();
+
+// Set up web page
 fs.readFile('static/index.html', function(err, html){
 	if(err) throw err;
 	http.createServer(function (request, response) {
@@ -141,3 +143,27 @@ setInterval(function(){
 		});
 	});
 },the_interval);
+
+
+var options = {
+	key: process.env.GOOGLE_API_SERVER_KEY,
+	cx: process.env.cx,
+	q: "trash can",
+	searchType: "image",
+	safe: "high",
+	num: 10
+};
+var param = querystring.stringify(options);
+var url = 'https://www.googleapis.com/customsearch/v1?' + param;
+client.get(url, function(data, response){
+	var trashURL = data.items[Math.floor(Math.random()*10)].link;
+	console.log(trashURL);
+	
+	FB.api('me/feed', 'post', {message: trashURL}, function(response){
+		if(!response || response.error){
+			console.log(!response ? 'error occured': response.error);
+			return;
+		}
+		console.log("Post id: " +  response.id);
+	})
+});
