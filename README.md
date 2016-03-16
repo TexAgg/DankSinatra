@@ -101,16 +101,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Convert SVG to PNG](https://github.com/domenic/svg2png)
 - [Possible npm package for saving SVGs](https://www.npmjs.com/package/svgutils)
 
-### Google (bad)
-- [npm module that does not use Google api](https://github.com/jprichardson/node-google)
-- [npm module that does use Google api](https://github.com/aykutyaman/google-search)
-- [npm google scraper](https://www.npmjs.com/package/google-search-scraper)
-- [Lol here's what I searched to find these links](https://www.google.com/search?q=nodejs+do+a+google+search&oq=nodejs+do+a+google+search&aqs=chrome..69i57.4485j0j7&sourceid=chrome&ie=UTF-8)
-- [Oh look google has an official node wrapper](https://github.com/google/google-api-nodejs-client)
-	- Found on [this](http://stackoverflow.com/questions/10209128/google-search-api-wrapper-for-node-js) question.
-
 ### Real Google resources
 - [REST Google API](https://developers.google.com/custom-search/json-api/v1/using_rest#making_a_request)
+- [Full parameters list](https://developers.google.com/custom-search/json-api/v1/reference/cse/list#parameters)
 
 ---
 
