@@ -105,6 +105,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [REST Google API](https://developers.google.com/custom-search/json-api/v1/using_rest#making_a_request)
 - [Full parameters list](https://developers.google.com/custom-search/json-api/v1/reference/cse/list#parameters)
 
+### Image saving
+- [Using request](http://stackoverflow.com/questions/12740659/downloading-images-with-node-js)
+
 ---
 
 ## Disclaimer
