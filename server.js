@@ -137,7 +137,7 @@ setInterval(function(){
 			
 		});
 	});
-}, 60 * 12 * 60 * 1000);
+}, 60 * 12 * 60 * 1000); // Every 12 hours
 
 
 setInterval(function(){
@@ -164,4 +164,4 @@ setInterval(function(){
 			console.log("Post id: " +  response.id);
 		});
 	});
-}, 60 * 10 * 60 * 1000);
+}, 60 * 10 * 60 * 1000); // Every 10 hours
