@@ -99,10 +99,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 
 /*
 	Post time and weather to facebook every 12 hours.
-	BUG: Time is way off
 */
-var minutes = 60 * 12;
-var the_interval = minutes * 60 * 1000;
 setInterval(function(){
 	http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/TX/Houston.json',function(response){	
 		//console.log(response.statusCode);
@@ -110,8 +107,6 @@ setInterval(function(){
 		var body = '';
 		var temp = {};
 		var status = {};
-		//var date = new Date().toLocaleTimeString();
-		//var update = 'The time is now ' + date + '.\n';
 		var update = '';
 		
 		// Add json response to string
@@ -142,29 +137,31 @@ setInterval(function(){
 			
 		});
 	});
-},the_interval);
+}, 60 * 12 * 60 * 1000);
 
 
-// Post the URL to a picture of a trash can
-var options = {
-	key: process.env.GOOGLE_API_SERVER_KEY,
-	cx: process.env.cx,
-	q: "trash can",
-	searchType: "image",
-	safe: "high",
-	num: 10
-};
-var param = querystring.stringify(options);
-var url = 'https://www.googleapis.com/customsearch/v1?' + param;
-client.get(url, function(data, response){
-	var trashURL = data.items[Math.floor(Math.random()*10)].link;
-	console.log(trashURL);
-	
-	FB.api('me/feed', 'post', {message: trashURL}, function(response){
-		if(!response || response.error){
-			console.log(!response ? 'error occured': response.error);
-			return;
-		}
-		console.log("Post id: " +  response.id);
-	})
-});
+setInterval(function(){
+	// Post the URL to a picture of a trash can
+	var options = {
+		key: process.env.GOOGLE_API_SERVER_KEY,
+		cx: process.env.cx,
+		q: "trash can",
+		searchType: "image",
+		safe: "high",
+		num: 10
+	};
+	var param = querystring.stringify(options);
+	var url = 'https://www.googleapis.com/customsearch/v1?' + param;
+	client.get(url, function(data, response){
+		var trashURL = data.items[Math.floor(Math.random()*10)].link;
+		console.log(trashURL);
+		
+		FB.api('me/feed', 'post', {message: trashURL}, function(response){
+			if(!response || response.error){
+				console.log(!response ? 'error occured': response.error);
+				return;
+			}
+			console.log("Post id: " +  response.id);
+		});
+	});
+}, 60 * 10 * 60 * 1000);
