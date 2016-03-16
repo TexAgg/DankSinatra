@@ -145,6 +145,7 @@ setInterval(function(){
 },the_interval);
 
 
+// Post the URL to a picture of a trash can
 var options = {
 	key: process.env.GOOGLE_API_SERVER_KEY,
 	cx: process.env.cx,
