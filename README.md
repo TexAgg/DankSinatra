@@ -18,7 +18,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ## Resources
 
 ### Cool Packages
-- https://github.com/sindresorhus/awesome-nodejs
+- [List](https://github.com/sindresorhus/awesome-nodejs)
+- [MySQL](https://www.npmjs.com/package/mysql)
+- [URL manipulation](https://www.npmjs.com/package/urijs)
 
 ### Node sources
 - [querystring](https://nodejs.org/api/querystring.html)
