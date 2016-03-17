@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://gaikema@bitbucket.org/gaikema/danksinatra.git"
   },
+  "bugs": {
+	  "url": "https://bitbucket.org/gaikema/danksinatra/issues"
+  },
   "engines": {
     "node": "4.2.4",
     "npm": "2.14.12"
