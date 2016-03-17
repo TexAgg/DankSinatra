@@ -7,6 +7,7 @@ const login = require("facebook-chat-api");
 const cool = require('cool-ascii-faces');
 const http = require('http');
 const Firebase = require("firebase");
+const cows = require('cows');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
@@ -24,7 +25,8 @@ var choices = {
 	
 	insult: /\\insult/,
 	
-	cool: /\\face/
+	cool: /\\face/, 
+	cow: /\\cow/
 };
 
 /*	
@@ -41,7 +43,8 @@ function parse(api, message){
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\weather (ZIP code): See the current weather in the given ZIP code.\n";
 		response += "\\date: See the current date.\n";
-		response += "\\face: Send a cool ascii face.";
+		response += "\\face: Send a cool ascii face.\n";
+		response += "\\cow: Send an ASCII cow.";
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
@@ -105,6 +108,13 @@ function parse(api, message){
 		//var date = new Date();
 		response = "The date is " + Date() + ".";
 		message_reqs.push(message);		
+		console.log("Sending " + response);
+		api.sendMessage(response, message.threadID);
+	}
+	
+	else if (choices.cow.test(message.body)){
+		response = cows()[Math.floor(Math.random()*418)];
+		message_reqs.push(message);
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}

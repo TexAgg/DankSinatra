@@ -17,6 +17,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 
 ## Resources
 
+### Cool Packages
+- https://github.com/sindresorhus/awesome-nodejs
+
 ### Node sources
 - [querystring](https://nodejs.org/api/querystring.html)
 
