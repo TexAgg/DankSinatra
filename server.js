@@ -62,13 +62,13 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callb
 	api.sendMessage(message, process.env.MY_ID);
 	
 	
-	
+	/*
 	// Post status on startup
-	FB.api('me/feed', 'post', {message: "Han Solo is killed by his son, Kylo Ren."}, function(response){
+	FB.api('me/feed', 'post', {message: "Kennedy cheated on his wife."}, function(response){
 		if(!response || response.error) return console.error(response.error);
 		console.log('Post id: ' + response.id);
 	});
-	
+	*/
 	
 		
 	// Respond to messages
@@ -185,7 +185,7 @@ schedule.scheduleJob(db_clean_rule, function(){
 */
 schedule.scheduleJob('* * 21 2 *', function(){
 	var wish = "Happy birthday! You are the coolest kid I know.";
-	FB.api(process.env.MY_ID+'/feed', {message: wish}, function(response) {
+	FB.api('me/feed', 'post', {message: wish, tags: tag_id}, function(response) {
 		if(!response || response.error){
 			console.log(!response ? 'error occured': response.error);
 			return;

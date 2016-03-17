@@ -108,6 +108,11 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 
 ---
 
+## TO-DO
+1. Post Game of Thrones Spoilers
+
+---
+
 ## Disclaimer
 The code is not well written.
 This is a personal project mostly meant to familiarize myself with public API's and Node.JS.
