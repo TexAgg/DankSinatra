@@ -17,12 +17,14 @@ const querystring = require('querystring');
 const Client = require('node-rest-client').Client;
 const schedule = require('node-schedule');
 const Firebase = require('firebase');
+const omdb = require('omdb');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child('Requests');
 
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
+var tag_id = "AaL3tJWg6NEupPka9yVHAZdJ4FDJBfoloNmbFKUriPffOsvUEd7-jlfd0ydn37_05MrdOY1PeVLpOQjiyur4qJyHjY7OToIxXKRfVndsLtS8cQ";
 
 // Use for REST module
 var client = new Client();

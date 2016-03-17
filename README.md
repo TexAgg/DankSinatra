@@ -59,6 +59,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ### Weather Underground API
 - [Weather API](http://www.wunderground.com/weather/api/d/docs)
 
+### IMDB API
+* https://www.npmjs.com/package/omdb
+
 ### Regex
 - [Regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
@@ -106,10 +109,9 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ### Image saving
 - [Using request](http://stackoverflow.com/questions/12740659/downloading-images-with-node-js)
 
----
-
-## TO-DO
-1. Post Game of Thrones Spoilers
+### Game of Throne
+* [Node API of ice and fire](https://github.com/alexwebb2/node-api-iceandfire)
+* [An API of Ice and Fire](https://anapioficeandfire.com/Documentation)
 
 ---
 
