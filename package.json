@@ -1,9 +1,10 @@
 {
   "name": "danksinatra",
   "version": "1.0.0",
+  "homepage": "http://danksinatra.herokuapp.com",
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/danksinatra.git"
+    "url": "https://gaikema@bitbucket.org/gaikema/danksinatra.git"
   },
   "engines": {
     "node": "4.2.4",
