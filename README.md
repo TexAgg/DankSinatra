@@ -35,7 +35,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ### Existing bot	
 * [Existing bot](https://github.com/bsansouci/marc-zuckerbot/blob/master/server.js)
 
-### Posting
+### Facebook Posting
 - [Example](http://code.runnable.com/UTlPM1-f2W1TAABY/post-on-facebook)
 - [With nodejs](http://stackoverflow.com/questions/26605805/automatic-post-to-my-facebook-page-from-node-js-server)
 - [Third party node sdk](https://github.com/Thuzi/facebook-node-sdk/)
@@ -64,9 +64,6 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 
 ### Node CLI
 - [Node CLI](https://nodejs.org/api/readline.html)
-
-### Gmail API	
-- [Gmail API](https://developers.google.com/gmail/api/v1/reference/users/messages/send#try-it)
 
 ### Python
 - [Node module](https://www.npmjs.com/package/python-shell)
@@ -101,9 +98,10 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Convert SVG to PNG](https://github.com/domenic/svg2png)
 - [Possible npm package for saving SVGs](https://www.npmjs.com/package/svgutils)
 
-### Real Google resources
+### Google
 - [REST Google API](https://developers.google.com/custom-search/json-api/v1/using_rest#making_a_request)
 - [Full parameters list](https://developers.google.com/custom-search/json-api/v1/reference/cse/list#parameters)
+- [Gmail API](https://developers.google.com/gmail/api/v1/reference/users/messages/send#try-it)
 
 ### Image saving
 - [Using request](http://stackoverflow.com/questions/12740659/downloading-images-with-node-js)
