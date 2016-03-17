@@ -15,6 +15,11 @@ const https = require('https');
 const fs = require('fs');
 const querystring = require('querystring');
 const Client = require('node-rest-client').Client;
+const schedule = require('node-schedule');
+const Firebase = require('firebase');
+
+var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
+var message_reqs = db.child('Requests');
 
 // Set access token
 FB.setAccessToken(process.env.FB_TOKEN);
@@ -165,3 +170,22 @@ setInterval(function(){
 		});
 	});
 }, 60 * 10 * 60 * 1000); // Every 10 hours
+
+
+var db_clean_rule = new schedule.RecurrenceRule();
+db_clean_rule.dayOfWeek = 0;
+schedule.scheduleJob(db_clean_rule, function(){
+	// Clean out firebase
+	message_reqs.remove();
+});
+
+schedule.scheduleJob('* * 21 2 *', function(){
+	var wish = "Happy birthday! You are the coolest kid I know.";
+	FB.api(process.env.MY_ID+'/feed', {message: wish}, function(response) {
+		if(!response || response.error){
+			console.log(!response ? 'error occured': response.error);
+			return;
+		}
+		console.log('Post id: ' + response.id);	
+	});
+});
