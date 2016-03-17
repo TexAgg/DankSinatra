@@ -17,7 +17,6 @@ const querystring = require('querystring');
 const Client = require('node-rest-client').Client;
 const schedule = require('node-schedule');
 const Firebase = require('firebase');
-const omdb = require('omdb');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child('Requests');
