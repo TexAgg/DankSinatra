@@ -167,9 +167,6 @@ function parse(api, message){
 	}
 	
 	else if (choices.greet.test(message.body)){
-		
-		// Choose randomly from array of greetings
-		
 		response = greetings.random() + ", " + message.senderName + "!";
 		message_reqs.push(message);
 		console.log("Sending " + response);
