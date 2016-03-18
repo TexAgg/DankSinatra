@@ -14,7 +14,7 @@ var message_reqs = db.child("Requests");
 var usersDB = db.child("users");
 var chatsDB = db.child("chats");
 
-// Requests
+// All commands go here
 var choices = {
 	help: /\\help/,
 	
@@ -44,7 +44,7 @@ function parse(api, message){
 		response += "\\weather (ZIP code): See the current weather in the given ZIP code.\n";
 		response += "\\date: See the current date.\n";
 		response += "\\face: Send a cool ascii face.\n";
-		response += "\\cow: Send an ASCII cow.";
+		response += "\\cow: Send an ascii cow.";
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
@@ -115,6 +115,13 @@ function parse(api, message){
 	else if (choices.cow.test(message.body)){
 		response = cows()[Math.floor(Math.random()*418)];
 		message_reqs.push(message);
+		console.log("Sending " + response);
+		api.sendMessage(response, message.threadID);
+	}
+	
+	else if (choices.insult.test(message.body)){
+		response = "Fuck you " + message.senderName + "!";
+		message_reqs.push(message);		
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}
