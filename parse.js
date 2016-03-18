@@ -10,6 +10,7 @@ const Firebase = require("firebase");
 const cows = require('cows');
 const url = require('url');
 const Client = require('node-rest-client').Client;
+const predict = require('eightball');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
@@ -49,6 +50,7 @@ function parse(api, message){
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\howdy: Send a greeting.\n";
+		response += "\\magic8 (yes/no question): Answer a yes/no question with complete accuracy.\n";
 		response += "\\weather (ZIP code): Send the current weather in the given ZIP code.\n";
 		response += "\\date: Send the current date.\n";
 		response += "\\face: Send a cool ascii face.\n";
@@ -171,6 +173,13 @@ function parse(api, message){
 		message_reqs.push(message);
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
+	}
+	
+	else if (choices.magic8.test(message.body)){
+		response = predict();
+		message_reqs.push(message);
+		console.log("Sending " + response);
+		api.sendMessage(response, message.threadID);		
 	}
 }
 
