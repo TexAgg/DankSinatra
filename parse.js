@@ -8,6 +8,8 @@ const cool = require('cool-ascii-faces');
 const http = require('http');
 const Firebase = require("firebase");
 const cows = require('cows');
+const url = require('url');
+const Client = require('node-rest-client').Client;
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
@@ -26,7 +28,8 @@ var choices = {
 	insult: /\\insult/,
 	
 	cool: /\\face/, 
-	cow: /\\cow/
+	cow: /\\cow/,
+	senate: /\\senate/
 };
 
 /*	
@@ -41,10 +44,11 @@ function parse(api, message){
 	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
-		response += "\\weather (ZIP code): See the current weather in the given ZIP code.\n";
-		response += "\\date: See the current date.\n";
+		response += "\\weather (ZIP code): Send the current weather in the given ZIP code.\n";
+		response += "\\date: Send the current date.\n";
 		response += "\\face: Send a cool ascii face.\n";
-		response += "\\cow: Send an ascii cow.";
+		response += "\\cow: Send an ascii cow.\n";
+		response += "\\senate: send a fact about the United States Senate."
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
@@ -124,6 +128,35 @@ function parse(api, message){
 		message_reqs.push(message);		
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
+	}
+	
+	else if (choices.senate.test(message.body)){
+
+		var client = new Client();
+		var nyt_url = url.format({
+			protocol: 'http',
+			host: 'api.nytimes.com',
+			pathname: '/svc/politics/v3/us/legislative/congress/113/senate/members.json',
+			query: {
+				'api-key': process.env.NYT_CONGRESS
+			}
+		});
+		client.get(nyt_url, function(data, response) {			
+			// Sort by total votes
+			data.results[0].members.sort(function(a, b){
+				return a.total_votes - b.total_votes;		
+			});
+			//console.log(data.results[0].members[0]);
+			response = "The senator with the fewest total votes cast is ";
+			response += data.results[0].members[0].first_name + ' ' + data.results[0].members[0].last_name;
+			response += " with " + data.results[0].members[0].total_votes + " total votes.";
+			
+			message_reqs.push(message);
+			console.log("Sending " + response);
+			api.sendMessage(response, message.threadID);			
+			
+		});
+
 	}
 }
 
