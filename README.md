@@ -22,6 +22,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [MySQL](https://www.npmjs.com/package/mysql)
 - [URL manipulation](https://www.npmjs.com/package/urijs)
 - [Magic 8 ball](https://www.npmjs.com/package/eightball)
+- [Greetings](https://www.npmjs.com/package/greetings)
 
 ### Node sources
 - [querystring](https://nodejs.org/api/querystring.html)

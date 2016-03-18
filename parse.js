@@ -11,6 +11,7 @@ const cows = require('cows');
 const url = require('url');
 const Client = require('node-rest-client').Client;
 const predict = require('eightball');
+const greetings = require('greetings');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
@@ -169,7 +170,7 @@ function parse(api, message){
 		
 		// Choose randomly from array of greetings
 		
-		response = "Howdy, " + message.senderName + "!";
+		response = greetings.random() + ", " + message.senderName + "!";
 		message_reqs.push(message);
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
