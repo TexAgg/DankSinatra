@@ -20,7 +20,8 @@ var chatsDB = db.child("chats");
 var choices = {
 	help: /\\help/,
 	
-	greet: /Dank/,
+	greet: /\\howdy/,
+	magic8: /\\magic8/,
 	
 	weather: /\\weather/,
 	date: /\\date/,
@@ -33,7 +34,10 @@ var choices = {
 };
 
 /*	
-	TODO: Simulate conversation. Use IDs and DB
+	TODO: 
+	1. Simulate conversation. Use IDs and DB
+	2. Give a random greeting
+	2. Magic 8 ball
 */
 function parse(api, message){
 	var response = '';
@@ -44,6 +48,7 @@ function parse(api, message){
 	
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
+		response += "\\howdy: Send a greeting.\n";
 		response += "\\weather (ZIP code): Send the current weather in the given ZIP code.\n";
 		response += "\\date: Send the current date.\n";
 		response += "\\face: Send a cool ascii face.\n";
@@ -156,7 +161,16 @@ function parse(api, message){
 			api.sendMessage(response, message.threadID);			
 			
 		});
-
+	}
+	
+	else if (choices.greet.test(message.body)){
+		
+		// Choose randomly from array of greetings
+		
+		response = "Howdy, " + message.senderName + "!";
+		message_reqs.push(message);
+		console.log("Sending " + response);
+		api.sendMessage(response, message.threadID);
 	}
 }
 
