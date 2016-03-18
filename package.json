@@ -7,7 +7,7 @@
     "url": "https://gaikema@bitbucket.org/gaikema/danksinatra.git"
   },
   "bugs": {
-	  "url": "https://bitbucket.org/gaikema/danksinatra/issues"
+    "url": "https://bitbucket.org/gaikema/danksinatra/issues"
   },
   "engines": {
     "node": "4.2.4",
@@ -28,6 +28,7 @@
     "facebook-chat-api": "git://github.com/schmavery/facebook-chat-api.git",
     "fb": "^1.0.2",
     "firebase": "^2.2.1",
+    "newyorktimes": "0.0.2",
     "node-rest-client": "^1.8.0",
     "node-schedule": "^1.1.0",
     "request": "^2.69.0"

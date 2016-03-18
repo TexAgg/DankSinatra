@@ -111,10 +111,14 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Full parameters list](https://developers.google.com/custom-search/json-api/v1/reference/cse/list#parameters)
 - [Gmail API](https://developers.google.com/gmail/api/v1/reference/users/messages/send#try-it)
 
+### New York Times
+- [Developer website](http://developers.nytimes.com/)
+- [Node module](https://www.npmjs.com/package/newyorktimes#Congress)
+
 ### Image saving
 - [Using request](http://stackoverflow.com/questions/12740659/downloading-images-with-node-js)
 
-### Game of Throne
+### Game of Thrones
 * [Node API of ice and fire](https://github.com/alexwebb2/node-api-iceandfire)
 * [An API of Ice and Fire](https://anapioficeandfire.com/Documentation)
 
