@@ -24,6 +24,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 
 ### Node sources
 - [querystring](https://nodejs.org/api/querystring.html)
+- [URL](https://nodejs.org/api/url.html)
 
 ### REST API
 - [Node REST client](https://www.npmjs.com/package/node-rest-client)
