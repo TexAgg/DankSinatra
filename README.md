@@ -24,6 +24,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Magic 8 ball](https://www.npmjs.com/package/eightball)
 - [Greetings](https://www.npmjs.com/package/greetings)
 - [Unique random array](https://www.npmjs.com/package/unique-random-array)
+- [Shakespeare insult](https://www.npmjs.com/package/shakespeare-insult)
 
 ### Node sources
 - [querystring](https://nodejs.org/api/querystring.html)
