@@ -12,6 +12,7 @@ const url = require('url');
 const Client = require('node-rest-client').Client;
 const predict = require('eightball');
 const greetings = require('greetings');
+const shake_insult = require('shakespeare-insult');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
@@ -132,7 +133,8 @@ function parse(api, message){
 	}
 	
 	else if (choices.insult.test(message.body)){
-		response = "Fuck you " + message.senderName + "!";
+		//response = "Fuck you " + message.senderName + "!";
+		response = message.senderName + " is a " + shake_insult.random() + "!";
 		message_reqs.push(message);		
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
