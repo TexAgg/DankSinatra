@@ -55,7 +55,7 @@ function parse(api, message){
 		response += "\\date: Send the current date.\n";
 		response += "\\face: Send a cool ascii face.\n";
 		response += "\\cow: Send an ascii cow.\n";
-		response += "\\senate: send a fact about the United States Senate."
+		response += "\\senate: Send a fact about the United States Senate."
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
