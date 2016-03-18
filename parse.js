@@ -52,6 +52,7 @@ function parse(api, message){
 	chatsDB.child(message.threadID).set(message);
 	usersDB.child(message.senderID).set(message);
 	
+	// Send list of commands
 	if (choices.help.test(message.body)){
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\howdy: Send a greeting.\n";
@@ -67,6 +68,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);
 	}
 	
+	// Send a face
 	else if (choices.cool.test(message.body)){
 		response = cool();
 		
@@ -75,8 +77,8 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);
 	}
 	
+	// Send the weather at a ZIP code
 	else if (choices.weather.test(message.body)){
-		
 		var zip_code = message.body.replace(choices.weather,"");
 		zip_code = zip_code.trim();
 		console.log(zip_code);
@@ -120,6 +122,7 @@ function parse(api, message){
 		});
 	}
 	
+	// Send the date
 	else if (choices.date.test(message.body)){
 		//var date = new Date();
 		response = "The date is " + Date() + ".";
@@ -128,6 +131,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);
 	}
 	
+	// Send a cow
 	else if (choices.cow.test(message.body)){
 		response = cows()[Math.floor(Math.random()*418)];
 		message_reqs.push(message);
@@ -135,6 +139,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);
 	}
 	
+	// Send an insult
 	else if (choices.insult.test(message.body)){
 		//response = "Fuck you " + message.senderName + "!";
 		response = message.senderName + " is a " + shake_insult.random() + "!";
@@ -143,6 +148,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);
 	}
 	
+	// Send the senator with the fewest votes
 	else if (choices.senate.test(message.body)){
 
 		var client = new Client();
@@ -171,6 +177,7 @@ function parse(api, message){
 		});
 	}
 	
+	// Send a random greeting
 	else if (choices.greet.test(message.body)){
 		response = greetings.random() + ", " + message.senderName + "!";
 		message_reqs.push(message);
@@ -178,6 +185,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);
 	}
 	
+	// Answer a yes/no question
 	else if (choices.magic8.test(message.body)){
 		response = predict();
 		message_reqs.push(message);
@@ -185,6 +193,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);		
 	}
 	
+	// Send a cigarette
 	else if (choices.blaze.test(message.body)){
 		response = emoji.get('smoking');
 		message_reqs.push(message);
