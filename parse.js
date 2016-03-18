@@ -13,6 +13,7 @@ const Client = require('node-rest-client').Client;
 const predict = require('eightball');
 const greetings = require('greetings');
 const shake_insult = require('shakespeare-insult');
+const emoji = require('node-emoji');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
@@ -33,6 +34,8 @@ var choices = {
 	
 	cool: /\\face/, 
 	cow: /\\cow/,
+	blaze: /\\blaze/,
+	
 	senate: /\\senate/
 };
 
@@ -181,6 +184,13 @@ function parse(api, message){
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);		
 	}
+	
+	else if (choices.blaze.test(message.body)){
+		response = emoji.get('smoking');
+		message_reqs.push(message);
+		console.log("Sending " + response);
+		api.sendMessage(response, message.threadID);		
+	}	
 }
 
 module.exports.parse = parse;
