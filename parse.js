@@ -36,7 +36,9 @@ var choices = {
 	cow: /\\cow/,
 	blaze: /\\blaze/,
 	
-	senate: /\\senate/
+	senate: /\\senate/,
+	
+	type: /\\type/
 };
 
 /*	
@@ -61,7 +63,8 @@ function parse(api, message){
 		response += "\\date: Send the current date.\n";
 		response += "\\face: Send a cool ascii face.\n";
 		response += "\\cow: Send an ascii cow.\n";
-		response += "\\senate: Send a fact about the United States Senate."
+		response += "\\senate: Send a fact about the United States Senate.\n";
+		response += "\\type: Send the 3 dots.";
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
@@ -199,6 +202,13 @@ function parse(api, message){
 		message_reqs.push(message);
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);		
+	}
+	
+	else if (choices.type.test(message.body)){
+		message_reqs.push(message);
+		api.sendTypingIndicator(message.threadID, function(){
+			console.log("Typing");
+		});
 	}	
 }
 
