@@ -98,6 +98,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 - [Delete commit history](https://hellocoding.wordpress.com/2015/01/19/delete-all-commit-history-github/)
 - [Remove a remote](https://help.github.com/articles/removing-a-remote/)
 - [Merging changes](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+- [gitignore generator](https://www.gitignore.io/api/visualstudiocode)
 
 ### HTML
 - [Displaying static HTML with Express](http://expressjs.com/en/starter/static-files.html)
