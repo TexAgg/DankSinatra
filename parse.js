@@ -204,6 +204,7 @@ function parse(api, message){
 		api.sendMessage(response, message.threadID);		
 	}
 	
+	// Send the 3 dots
 	else if (choices.type.test(message.body)){
 		message_reqs.push(message);
 		api.sendTypingIndicator(message.threadID, function(){
