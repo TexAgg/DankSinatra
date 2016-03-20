@@ -135,3 +135,4 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ## Disclaimer
 The code is not well written.
 This is a personal project mostly meant to familiarize myself with public API's and Node.JS.
+Also, every so often I have to verify that Dank is not a bot (by hand) if I login frequently in a short window of time.
