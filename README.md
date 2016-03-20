@@ -12,6 +12,7 @@ Unfortunately, the source code is currently unavailable, but will be posted when
 ## View him in action!
 * [Facebook](https://www.facebook.com/profile.php?id=100010461758967)
 * [Heroku](http://danksinatra.herokuapp.com)
+* [Wiki](https://bitbucket.org/gaikema/danksinatra/wiki/Home)
 
 ---
 
