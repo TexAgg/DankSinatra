@@ -52,6 +52,10 @@ setInterval(function() {
  * MAIN METHOD FOR CHATTING
  * 
  * Login to facebook.
+ * 
+ * TO-DO:
+ * Login via app-state to minimize Facebook reports
+ * https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md#logincredentials-options-callback
  */
 login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callback (error, api) {
 	if(error) return console.error(error);
