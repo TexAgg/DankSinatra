@@ -59,6 +59,8 @@ setInterval(function() {
  */
 login({email: process.env.EMAIL, password: process.env.PASSWORD}, function callback (error, api) {
 	if(error) return console.error(error);
+	// Set appstate
+	//fs.writeFileSync('appstate.json', JSON.stringify(api.getAppState()));
 	
 	// Send me a fb message upon startup
 	var message = {
