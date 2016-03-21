@@ -57,10 +57,13 @@ setInterval(function() {
  * Login via app-state to minimize Facebook reports
  * https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md#logincredentials-options-callback
  */
+//login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, function callback (error, api) {
 login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: true}, function callback (error, api) {
 	if(error) return console.error(error);
 	// Set appstate
 	//fs.writeFileSync('appstate.json', JSON.stringify(api.getAppState()));
+	
+	console.log("Logged in!");
 	
 	// Send me a fb message upon startup
 	var message = {
