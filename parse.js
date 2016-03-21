@@ -38,7 +38,9 @@ var choices = {
 	
 	senate: /\\senate/,
 	
-	type: /\\type/
+	type: /\\type/,
+	
+	love: /\\love/
 };
 
 /*	
@@ -210,6 +212,13 @@ function parse(api, message){
 		api.sendTypingIndicator(message.threadID, function(){
 			console.log("Typing");
 		});
+	}
+	
+	else if (choices.love.test(message.body)){
+		message_reqs.push(message);
+		response = "Don't worry, " + message.senderName + ", I love you!";
+		console.log("Sending " + response);
+		api.sendMessage(response,message.threadID);
 	}	
 }
 
