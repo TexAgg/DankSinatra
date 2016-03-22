@@ -1,6 +1,7 @@
 /*
 	parse.js
-	Reads the incoming message and chooses the appropriate response
+	Reads the incoming message and chooses the appropriate response.
+	The "mouth" of Dank
 */
 
 const login = require("facebook-chat-api");

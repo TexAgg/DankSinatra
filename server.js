@@ -1,6 +1,7 @@
 /*
 	server.js
 	Main method. Log in to facebook, listens to messages, and posts.
+	The "ears" of Dank
 */
 
 // Set environment variables
@@ -52,10 +53,6 @@ setInterval(function() {
  * MAIN METHOD FOR CHATTING
  * 
  * Login to facebook.
- * 
- * TO-DO:
- * Login via app-state to minimize Facebook reports
- * https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md#logincredentials-options-callback
  */
 //login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, {forceLogin: true}, function callback (error, api) {
 login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: true}, function callback (error, api) {
