@@ -150,7 +150,6 @@ function parse(api, message){
 	
 	// Send an insult
 	else if (choices.insult.test(message.body)){
-		//response = "Fuck you " + message.senderName + "!";
 		response = message.senderName + " is a " + shake_insult.random() + "!";
 		message_reqs.push(message);		
 		console.log("Sending " + response);
