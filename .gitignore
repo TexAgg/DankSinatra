@@ -1,12 +1,16 @@
-node_modules
+node_modules/
 .env
 test.js
-.vscode
+.vscode/
 weather_example.json
-gmail
-tests
+gmail/
+tests/
 mail.py
-media
+media/
 cdt.txt
 token.js
 appstate.json
+
+# Dialog
+dialog/Exercise_1_end.xml
+dialog/WatsonDialogDocument_1.0.xsd
