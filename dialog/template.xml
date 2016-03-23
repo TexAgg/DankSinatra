@@ -24,14 +24,16 @@
 		</folder>
         <folder label="Library">
             <folder label="Live Content" id="folder_2449611">
-				<grammar>
-					<item>What type of toppings do you have?</item>
-					<item>$ What type of toppings do you have?</item>
-					<item>$ list of toppings</item>
-					<item>What * toppings * have</item>
-					<item>$ list toppings * available</item>
-					<item>$ what toppings do you have</item>
-				</grammar>
+				<input>
+					<grammar>
+						<item>What type of toppings do you have?</item>
+						<item>$ What type of toppings do you have?</item>
+						<item>$ list of toppings</item>
+						<item>What * toppings * have</item>
+						<item>$ list toppings * available</item>
+						<item>$ what toppings do you have</item>
+					</grammar>
+				</input>
 				<output>
 					<prompt selectionType="RANDOM">
 						<item>We have pizza</item>
