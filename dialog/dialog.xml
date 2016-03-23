@@ -15,15 +15,18 @@
 						<prompt selectionType="RANDOM">
 							<item>
 								I'm sorry, I did not understand your question.
-								Please ask again
+								Please ask again.
 							</item>
 						</prompt>
 					</output>
 				</default>
 			</getUserInput>
 		</folder>
-        <folder label="Library" id="Library">
-            <folder label="Live Content" id="Live Content"></folder>
+        <folder label="Library">
+            <folder label="Live Content" id="folder_2449611">
+				<grammar>
+				</grammar>
+			</folder>
             <folder label="Storage" id="Storage"></folder>
         </folder>
         <folder label="Concepts" id="Concepts"></folder>
