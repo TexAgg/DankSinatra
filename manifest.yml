@@ -1,3 +1,4 @@
 ---
+applications:
 - name: danksinatra
-  domain: danksinatra.mybluemix.net
+  domain: mybluemix.net
