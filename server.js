@@ -21,6 +21,8 @@ const Firebase = require('firebase');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child('Requests');
+var usersDB = db.child("users");
+var chatsDB = db.child("chats");
 
 
 // Set access token
@@ -87,7 +89,11 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 		// Echo response
         //api.sendMessage(message.body, message.threadID);
 		
-		parse.parse(api,message);	
+		chatsDB.on('value', function(snapshot){
+			parse.parse(api, message, snapshot);	
+		});
+		
+		//parse.parse(api,message);	
     });
 });
 

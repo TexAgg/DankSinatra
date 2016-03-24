@@ -27,7 +27,7 @@ var chatsDB = db.child("chats");
 	2. Give a random greeting
 	2. Magic 8 ball
 */
-function parse(api, message){
+function parse(api, message, snapshot){
 	
 	// All commands go here
 	var choices = {
