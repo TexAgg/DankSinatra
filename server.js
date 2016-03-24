@@ -45,7 +45,7 @@ fs.readFile('static/index.html', function(err, html){
 	}).listen(process.env.PORT || 5000);
 });
 
-/*
+
 // Prevent idling
 setInterval(function() {
 	http.get("danksinatra.mybluemix.net", function(response) {
@@ -53,7 +53,7 @@ setInterval(function() {
     console.log("pong");
   });
 }, 300000); // 5 min
-*/
+
 
 
 /**
