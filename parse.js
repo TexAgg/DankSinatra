@@ -21,29 +21,6 @@ var message_reqs = db.child("Requests");
 var usersDB = db.child("users");
 var chatsDB = db.child("chats");
 
-// All commands go here
-var choices = {
-	help: /\\help/,
-	
-	greet: /\\howdy/,
-	magic8: /\\magic8/,
-	
-	weather: /\\weather/,
-	date: /\\date/,
-	
-	insult: /\\insult/,
-	
-	cool: /\\face/, 
-	cow: /\\cow/,
-	blaze: /\\blaze/,
-	
-	senate: /\\senate/,
-	
-	type: /\\type/,
-	
-	love: /\\love/
-};
-
 /*	
 	TODO: 
 	1. Simulate conversation. Use IDs and DB
@@ -51,6 +28,30 @@ var choices = {
 	2. Magic 8 ball
 */
 function parse(api, message){
+	
+	// All commands go here
+	var choices = {
+		help: /\\help/,
+		
+		greet: /\\howdy/,
+		magic8: /\\magic8/,
+		
+		weather: /\\weather/,
+		date: /\\date/,
+		
+		insult: /\\insult/,
+		
+		cool: /\\face/, 
+		cow: /\\cow/,
+		blaze: /\\blaze/,
+		
+		senate: /\\senate/,
+		
+		type: /\\type/,
+		
+		love: /\\love/
+	};
+	
 	var response = '';
 	
 	// Add child for the threadID and append message there
