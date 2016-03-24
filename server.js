@@ -65,10 +65,10 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 	//api.setOptions({listenEvents: true});
 	
 	// Send me a fb message upon startup
-	var message = {
+	var intro_message = {
 		body: "I'm logged in now!\n" + Date(),
 	};
-	api.sendMessage(message, process.env.MY_ID);
+	api.sendMessage(intro_message, process.env.MY_ID);
 	
 	
 	/*
@@ -89,23 +89,8 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 		
 		
 		// Alert me
-		var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
-		//api.sendMessage(msginfo, process.env.MY_ID);
-		
-		/*
-		// Python email no longer works
-		var options = {
-			mode: 'text',
-			script: 'mail.py',
-			pythonOptions: ['-u'],
-			args: [msginfo]
-		};
-		PythonShell.run('mail.py', options, function (err, results) {
-			if (err) throw err;
-			console.log('Python results: %j', results);
-			console.log('Python finished');
-		});
-		*/		
+		//var msginfo = 'From: ' + message.senderName + '\nTime: ' + Date() + '\nMessage: \"' + message.body + '\"';
+		//api.sendMessage(msginfo, process.env.MY_ID);		
 		
 		//return stopListening();
     });
