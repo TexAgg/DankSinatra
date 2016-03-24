@@ -74,7 +74,7 @@ function parse(api, message){
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
-		api.sendMessage(response, message.threadID);
+		api.sendMessage({body: response}, message.threadID);
 	}
 	
 	// Send a face
