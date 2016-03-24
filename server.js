@@ -54,7 +54,8 @@ fs.readFile('static/index.html', function(err, html){
 
 // Prevent idling
 setInterval(function() {
-  http.get("danksinatra.mybluemix.net", function(response) {
+	//http.get("danksinatra.mybluemix.net", function(response) {
+	http.get("danksinatra.herokuapp.com", function(response) {
     console.log("pong");
   });
 }, 300000); // 5 min
@@ -238,8 +239,6 @@ var choices = {
 /*	
 	TODO: 
 	1. Simulate conversation. Use IDs and DB
-	2. Give a random greeting
-	2. Magic 8 ball
 */
 function parse(api, message){
 	var response = '';
