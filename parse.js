@@ -59,7 +59,7 @@ function parse(api, message){
 	
 	// Send list of commands
 	if (choices.help.test(message.body)){
-		/*
+		
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\howdy: Send a greeting.\n";
 		response += "\\magic8 (yes/no question): Answer a yes/no question with complete accuracy.\n";
@@ -69,8 +69,8 @@ function parse(api, message){
 		response += "\\cow: Send an ascii cow.\n";
 		response += "\\senate: Send a fact about the United States Senate.\n";
 		response += "\\type: Send the 3 dots.";
-		*/
-		response = "Check out https://bitbucket.org/gaikema/danksinatra/wiki/Home for help and a list of commands!";
+		
+		//response = "Check out <https://bitbucket.org/gaikema/danksinatra/wiki/Home> for help and a list of commands!";
 		
 		message_reqs.push(message);
 		console.log("Sending " + response);		
