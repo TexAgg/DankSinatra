@@ -27,7 +27,7 @@
     "cows": "^0.2.3",
     "dotenv": "^2.0.0",
     "eightball": "^1.0.1",
-    "facebook-chat-api": "git://github.com/schmavery/facebook-chat-api.git",
+    "facebook-chat-api": "https://github.com/TexAgg/facebook-chat-api.git",
     "fb": "^1.0.2",
     "firebase": "^2.2.1",
     "greetings": "0.0.8",
