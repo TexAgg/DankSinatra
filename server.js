@@ -43,7 +43,7 @@ fs.readFile('static/index.html', function(err, html){
 
 // Prevent idling
 setInterval(function() {
-  http.get("http://danksinatra.herokuapp.com", function(response) {
+  http.get("danksinatra.mybluemix.net", function(response) {
     console.log("pong");
   });
 }, 300000); // 5 min
