@@ -18,13 +18,6 @@ const querystring = require('querystring');
 const Client = require('node-rest-client').Client;
 const schedule = require('node-schedule');
 const Firebase = require('firebase');
-const cool = require('cool-ascii-faces');
-const cows = require('cows');
-const url = require('url');
-const predict = require('eightball');
-const greetings = require('greetings');
-const shake_insult = require('shakespeare-insult');
-const emoji = require('node-emoji');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child('Requests');
@@ -52,13 +45,15 @@ fs.readFile('static/index.html', function(err, html){
 	}).listen(process.env.PORT || 5000);
 });
 
+/*
 // Prevent idling
 setInterval(function() {
-	//http.get("danksinatra.mybluemix.net", function(response) {
-	http.get("danksinatra.herokuapp.com", function(response) {
+	http.get("danksinatra.mybluemix.net", function(response) {
+	//http.get("danksinatra.herokuapp.com", function(response) {
     console.log("pong");
   });
 }, 300000); // 5 min
+*/
 
 
 /**
@@ -93,7 +88,9 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 	
 		
 	// Respond to messages
-	var stopListening = api.listen(function callback(error, message) {
+	api.listen(function callback(error, message) {
+		
+		console.log("I hate Mark Zuckerburg.");
 		
 		// Echo response
         //api.sendMessage(message.body, message.threadID);
