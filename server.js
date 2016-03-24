@@ -21,9 +21,6 @@ const Firebase = require('firebase');
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child('Requests');
-//var message_reqs = db.child("Requests");
-var usersDB = db.child("users");
-var chatsDB = db.child("chats");
 
 
 // Set access token
@@ -87,14 +84,10 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 		
 	// Respond to messages
 	api.listen(function callback(error, message) {
-		
-		console.log("I hate Mark Zuckerburg.");
-		
 		// Echo response
         //api.sendMessage(message.body, message.threadID);
-		parse.parse(api,message);	
 		
-		//return stopListening();
+		parse.parse(api,message);	
     });
 });
 
