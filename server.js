@@ -48,8 +48,8 @@ fs.readFile('static/index.html', function(err, html){
 
 // Prevent idling
 setInterval(function() {
-	http.get("danksinatra.mybluemix.net", function(response) {
-	//http.get("danksinatra.herokuapp.com", function(response) {
+	http.get("http://danksinatra.mybluemix.net", function(response) {
+	//http.get("http://danksinatra.herokuapp.com", function(response) {
     console.log("pong");
   });
 }, 300000); // 5 min
