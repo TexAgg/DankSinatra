@@ -62,6 +62,8 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 	
 	console.log("Logged in!");
 	
+	//api.setOptions({listenEvents: true});
+	
 	// Send me a fb message upon startup
 	var message = {
 		body: "I'm logged in now!\n" + Date(),
@@ -79,7 +81,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 	
 		
 	// Respond to messages
-	api.listen(function callback(error, message) {
+	var stopListening = api.listen(function callback(error, message) {
 		
 		// Echo response
         //api.sendMessage(message.body, message.threadID);
@@ -105,6 +107,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 		});
 		*/		
 		
+		//return stopListening();
     });
 });
 
