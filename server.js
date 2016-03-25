@@ -89,9 +89,10 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 		// Echo response
         //api.sendMessage(message.body, message.threadID);
 		
-		chatsDB.on('value', function(snapshot){
-			chatsDB.off();
-			parse.parse(api, message, snapshot);	
+		chatsDB.once('value', function(snapshot){
+			//var data = snapshot.child(message.threadID).val();
+			parse.parse(api, message, snapshot.child(message.threadID).val());
+			//parse.parse(api, message, snapshot);	
 		});
 		
 		//parse.parse(api,message);	

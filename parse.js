@@ -27,7 +27,7 @@ var chatsDB = db.child("chats");
 	2. Give a random greeting
 	2. Magic 8 ball
 */
-function parse(api, message, snapshot){
+function parse(api, message, data){
 	
 	// All commands go here
 	var choices = {
@@ -64,6 +64,9 @@ function parse(api, message, snapshot){
 	
 	if (choices.convo.test(message.body)){
 		// Start new conversation
+		//console.log(snapshot.child(message.threadID).val());
+		//console.log(message);
+		console.log(data);
 	}
 	
 	// Send list of commands
