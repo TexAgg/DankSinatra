@@ -49,7 +49,9 @@ function parse(api, message, snapshot){
 		
 		type: /\\type/,
 		
-		love: /\\love/
+		love: /\\love/,
+		
+		convo: /\\convo/
 	};
 	
 	var response = '';
@@ -58,8 +60,14 @@ function parse(api, message, snapshot){
 	chatsDB.child(message.threadID).set(message);
 	usersDB.child(message.senderID).set(message);
 	
+	// check if a dialog exists with this user
+	
+	if (choices.convo.test(message.body)){
+		// Start new conversation
+	}
+	
 	// Send list of commands
-	if (choices.help.test(message.body)){
+	else if (choices.help.test(message.body)){
 		
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\howdy: Send a greeting.\n";

@@ -90,6 +90,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
         //api.sendMessage(message.body, message.threadID);
 		
 		chatsDB.on('value', function(snapshot){
+			chatsDB.off();
 			parse.parse(api, message, snapshot);	
 		});
 		
