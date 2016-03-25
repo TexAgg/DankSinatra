@@ -15,11 +15,19 @@ const predict = require('eightball');
 const greetings = require('greetings');
 const shake_insult = require('shakespeare-insult');
 const emoji = require('node-emoji');
+const watson = require('watson-developer-cloud');
+
+var dialog_service = watson.dialog({
+	username: process.env.dialog_username,
+	password: process.env.dialog_password,
+	version: 'v1'
+});
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
 var usersDB = db.child("users");
 var chatsDB = db.child("chats");
+var converseDB = db.child("Conversations");
 
 /*	
 	TODO: 
@@ -64,9 +72,25 @@ function parse(api, message, data){
 	
 	if (choices.convo.test(message.body)){
 		// Start new conversation
-		//console.log(snapshot.child(message.threadID).val());
-		//console.log(message);
-		console.log(data);
+		
+		var converse_params = {
+			dialog_id: process.env.dialog_id
+		};
+		dialog_service.conversation(converse_params, function(err, watson_response){
+			if (err)
+				console.log(err);
+			else {
+				console.log(watson_response);
+				converseDB.child(watson_response.conversation_id).set(watson_response);
+				chatsDB.child(message.threadID).set({
+					message: message,
+					conversation: watson_response
+				});
+				
+				response = watson_response.response[0];
+				api.sendMessage(response, message.threadID);
+			}	
+		});		
 	}
 	
 	// Send list of commands
