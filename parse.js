@@ -37,6 +37,8 @@ var converseDB = db.child("Conversations");
 */
 function parse(api, message, data){
 	
+	console.log(data);
+	
 	// All commands go here
 	var choices = {
 		help: /\\help/,
@@ -69,8 +71,34 @@ function parse(api, message, data){
 	usersDB.child(message.senderID).set(message);
 	
 	// check if a dialog exists with this user
+	if (data.conversation){
+		//console.log('nice');
+		
+		// End the conversation
+		if (message.body == '\\quit'){
+			return;
+		}
+		
+		var params = {
+		conversation_id: data.conversation.conversation_id,
+		dialog_id: process.env.dialog_id,
+		client_id: data.conversation.client_id,
+		input:     message.body
+		};
+		dialog_service.conversation(params, function(err, conversation) {
+		if (err)
+			console.log(err)
+		else
+			console.log(conversation);
+			chatsDB.child(message.threadID).set({
+				message: message,
+				conversation: conversation
+			});			
+			api.sendMessage(conversation.response[0], message.threadID);
+		});		
+	}
 	
-	if (choices.convo.test(message.body)){
+	else if (choices.convo.test(message.body)){
 		// Start new conversation
 		
 		var converse_params = {
