@@ -6,7 +6,7 @@
 				<prompt selectionType="RANDOM">
 					<item>
 					Hello! I am Dank Sinatra. Ask me about pizza toppings.
-					Or, type '\\quit' to quit this conversation.
+					Or, type '\quit' to quit this conversation.
 					</item>
 				</prompt>
 				<goto ref="getUserInput_2449614"/>
