@@ -36,12 +36,12 @@
 						<item>$ list toppings * available</item>
 						<item>$ what toppings do you have</item>
 					</grammar>
-				</input>
-				<output>
-					<prompt selectionType="RANDOM">
-						<item>We have pizza</item>
-					</prompt>
-				</output>
+					<output>
+						<prompt selectionType="RANDOM">
+							<item>We have pizza</item>
+						</prompt>
+					</output>
+				</input>				
 			</folder>
             <folder label="Storage"></folder>
         </folder>
