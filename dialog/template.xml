@@ -9,10 +9,10 @@
 					Or, type '\quit' to quit this conversation.
 					</item>
 				</prompt>
-				<goto ref="getUserInput_2449614"/>
+				<goto ref="getUserInput_2449614"></goto>
 			</output>
 			<getUserInput id="getUserInput_2449614">
-				<search ref="folder_2449611"/>
+				<search ref="folder_2449611"></search>
 				<default>
 					<output>
 						<prompt selectionType="RANDOM">
