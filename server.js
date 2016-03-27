@@ -59,7 +59,7 @@ setInterval(function() {
  * Login to facebook.
  */
 //login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, {forceLogin: true}, function callback (error, api) {
-login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: true}, function callback (error, api) {
+login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: true, disableDelta: true}, function callback (error, api) {
 	if(error) return console.error(error);
 	// Set appstate
 	//fs.writeFileSync('appstate.json', JSON.stringify(api.getAppState()));
