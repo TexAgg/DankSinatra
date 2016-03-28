@@ -4,11 +4,11 @@
     <folder label="Main">
       <output>
         <prompt selectionType="RANDOM">
-          <item>
-					Hello! I am Dank Sinatra. 
-					I will now help you order a pizza.
-					Or, type '\quit' to quit this conversation.
-					</item>
+         	<item>
+		  	Hello! I am Dank Sinatra. 
+			I will now help you order a pizza.
+			Or, type '\quit' to quit this conversation.
+			</item>
         </prompt>
         <goto ref="getUserInput_2449614"></goto>
       </output>
