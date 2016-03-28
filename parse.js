@@ -15,11 +15,19 @@ const predict = require('eightball');
 const greetings = require('greetings');
 const shake_insult = require('shakespeare-insult');
 const emoji = require('node-emoji');
+const watson = require('watson-developer-cloud');
+
+var dialog_service = watson.dialog({
+	username: process.env.dialog_username,
+	password: process.env.dialog_password,
+	version: 'v1'
+});
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
 var message_reqs = db.child("Requests");
 var usersDB = db.child("users");
 var chatsDB = db.child("chats");
+var converseDB = db.child("Conversations");
 
 /*	
 	TODO: 
@@ -27,7 +35,9 @@ var chatsDB = db.child("chats");
 	2. Give a random greeting
 	2. Magic 8 ball
 */
-function parse(api, message){
+function parse(api, message, data){
+	
+	console.log(data);
 	
 	// All commands go here
 	var choices = {
@@ -49,7 +59,9 @@ function parse(api, message){
 		
 		type: /\\type/,
 		
-		love: /\\love/
+		love: /\\love/,
+		
+		convo: /\\convo/
 	};
 	
 	var response = '';
@@ -58,8 +70,59 @@ function parse(api, message){
 	chatsDB.child(message.threadID).set(message);
 	usersDB.child(message.senderID).set(message);
 	
+	// check if a dialog exists with this user
+	if (data.conversation){
+		//console.log('nice');
+		
+		// End the conversation
+		if (message.body == '\\quit'){
+			return;
+		}
+		
+		var params = {
+		conversation_id: data.conversation.conversation_id,
+		dialog_id: process.env.dialog_id,
+		client_id: data.conversation.client_id,
+		input:     message.body
+		};
+		dialog_service.conversation(params, function(err, conversation) {
+		if (err)
+			console.log(err)
+		else
+			console.log(conversation);
+			chatsDB.child(message.threadID).set({
+				message: message,
+				conversation: conversation
+			});			
+			api.sendMessage(conversation.response[0], message.threadID);
+		});		
+	}
+	
+	else if (choices.convo.test(message.body)){
+		// Start new conversation
+		
+		var converse_params = {
+			dialog_id: process.env.dialog_id
+		};
+		dialog_service.conversation(converse_params, function(err, watson_response){
+			if (err)
+				console.log(err);
+			else {
+				console.log(watson_response);
+				converseDB.child(watson_response.conversation_id).set(watson_response);
+				chatsDB.child(message.threadID).set({
+					message: message,
+					conversation: watson_response
+				});
+				
+				response = watson_response.response[0];
+				api.sendMessage(response, message.threadID);
+			}	
+		});		
+	}
+	
 	// Send list of commands
-	if (choices.help.test(message.body)){
+	else if (choices.help.test(message.body)){
 		
 		response = "Type '\\help' for a list of commands.\n";
 		response += "\\howdy: Send a greeting.\n";
