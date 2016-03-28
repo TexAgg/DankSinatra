@@ -71,11 +71,11 @@ function parse(api, message, data){
 	usersDB.child(message.senderID).set(message);
 	
 	// check if a dialog exists with this user
-	if (data.conversation){
+	if (data.conversation && data.participantNames.length > 1){
 		//console.log('nice');
 		
 		// End the conversation
-		if (message.body == '\\quit' || message.senderID!=message.threadID){
+		if (message.body == '\\quit'){
 			return;
 		}
 		
