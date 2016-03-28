@@ -1,180 +1,159 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
-    <flow>
-        <folder label="Main">
-			<output>
-				<prompt selectionType="RANDOM">
-					<item>
+  <flow>
+    <folder label="Main">
+      <output>
+        <prompt selectionType="RANDOM">
+          <item>
 					Hello! I am Dank Sinatra. 
 					I will now help you order a pizza.
 					Or, type '\quit' to quit this conversation.
 					</item>
-				</prompt>
-				<goto ref="getUserInput_2449614"></goto>
-			</output>
-			<getUserInput id="getUserInput_2449614">
-				<search ref="folder_2449611"></search>
-				<default>
-					<output>
-						<prompt selectionType="RANDOM">
-							<item>
+        </prompt>
+        <goto ref="getUserInput_2449614"></goto>
+      </output>
+      <getUserInput id="getUserInput_2449614">
+        <search ref="folder_2449611"></search>
+        <default>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>
 								I'm sorry, I did not understand your question.
 								Please ask again.
 							</item>
-						</prompt>
-					</output>
-				</default>
-			</getUserInput>
-		</folder>
-        <folder label="Library">
-            <folder label="Live Content" id="folder_2449611">
-				<input>
-					<grammar>
-						<item>What type of toppings do you have?</item>
-						<item>$ What type of toppings do you have?</item>
-						<item>$ list of toppings</item>
-						<item>What * toppings * have</item>
-						<item>$ list toppings * available</item>
-						<item>$ what toppings do you have</item>
-					</grammar>
-					<output>
-						<prompt selectionType="RANDOM">
-							<item>We have pizza</item>
-						</prompt>
-					</output>
-				</input>
-				<input>
-					<grammar>
-						<item>What do you sell?</item>
-					</grammar>
-					<output>
-						<prompt selectionType="RANDOM">
-							<item>Are you looking for appetizers, entrees, or drinks?</item>
-						</prompt>
-						<input>
-							<grammar>
-								<item>drinks</item>
-								<item>beverages</item>
-								<item>liquid</item>
-								<item>libation</item>
-							</grammar>
-							<output>
-								<prompt selectionType="RANDOM">
-									<item>We have<br/>
-									Coke,
-									Sprite,
-									Sunkist,
-									Root Beer,
-									Ginger Ale,
-									Fresca,
-									Mello Yello,
-									Grape,
-									Dr Pepper,
-									Monster,
-									Moxie Energy,
-									and Bottled Spring water
-									</item>
-								</prompt>
-							</output>							
-						</input>
-						<input>
-							<grammar>
-								<item>entrees</item>
-								<item>meals</item>
-								<item>main courses</item>
-								<item>food</item>
-							</grammar>
-							<output>
-								<prompt selectionType="RANDOM">
-									<item>We have Chicken Parm,
-									Chicken Cutlet and Marinara Sauce,
-									Veal Parm,
-									Eggplant Parm,
-									Eggplant and Marinara Sauce,
-									Meatball, Marinara Sauce and Meatball,
-									Chicken & Broccoli,
-									Chicken Kabob, Alfredo Sauce and Broccoli,
-									Steak & Broccoli, and
-									Alfredo Sauce and Broccoli.
-								  </item>
-								</prompt>							
-							</output>
-						</input>
-						<input>
-							<grammar>
-								<item>appetizers</item>
-								<item>snacks</item>
-								<item>finger food</item>
-							</grammar>
-							<output>
-								<prompt selectionType="RANDOM">
-									<item>Chose from Fried Calamari, Mozarella Sticks, Stuffed potato skins, Jalepeno Poppers or Stuffed Mushrooms</item>
-								</prompt>
-							</output>
-						</input>
-					</output>
-				</input>
-				<input>
-					<grammar>
-						<item>What type of pizza do you sell?</item>
-					</grammar>
-				</input>	
-			</folder>
-            <folder label="Storage"></folder>
-        </folder>
-		<folder label="Global"></folder>
-        <folder label="Concepts">
-			<concept>
-				<grammar>
-					<item>pizza</item>
-					<item>pie</item>
-					<item>slice</item>
-				</grammar>
-			</concept>
-		</folder>
-    </flow>
-    <constants>
-        <var_folder name="Home"></var_folder>
-    </constants>
-    <variables>
-        <var_folder name="Home"></var_folder>
-    </variables>	
-	<settings>
-		<setting name="DISPLAYNAME" type="USER">test</setting>
-        <setting name="RETURNTOCHATNODEID" type="USER">0</setting>
-        <setting name="PERSONALITYTYPEID" type="USER">6</setting>
-        <setting name="SENDCHATEMAIL" type="USER">false</setting>
-        <setting name="CACHE" type="USER">true</setting>
-        <setting name="AUTOLEARN" type="USER">false</setting>
-        <setting name="LANGUAGE" type="USER">en-US</setting>
-        <setting name="RESPONSETIME" type="USER">-2</setting>
-        <setting name="MAXAUTOLEARNITEMS" type="USER">4</setting>
-        <setting name="TIMEZONEID" type="USER">Europe/Prague</setting>
-        <setting name="INPUTMASKTYPE" type="USER">0</setting>
-        <setting name="CONCEPTMATCHING" type="USER">0</setting>
-        <setting name="USE_CONCEPTS">3</setting>
-        <setting name="AL_NONE_LABEL">None of the above</setting>
-        <setting name="DYNAMIC_MESSAGING">false</setting>
-        <setting name="DEFAULT_DNR_RETURN_POINT_CANDIDATE">-1</setting>
-        <setting name="ENTITIES_SCOPE">3</setting>
-        <setting name="MULTISENT">0</setting>
-        <setting name="REPORT_SCRIPT_ID">0</setting>
-        <setting name="DNR_NODE_ID">-16</setting>
-        <setting name="DEFAULT_POINT_NODE_ID">2</setting>        
-		<setting name="USER_LOGGING">2</setting>
-        <setting name="CLS_SEARCH_MODE">0</setting>
-        <setting name="CLS_MODEL">0</setting>
-        <setting name="CLS_ENDPOINT"></setting>
-        <setting name="CLS_USERNAME"></setting>
-        <setting name="CLS_PASSWORD"></setting>
-        <setting name="CLS_MODELNAME">1CC095x161-nlc-13</setting>
-        <setting name="CLS_ADVANCED_SETTINGS">true</setting>
-        <setting name="CLS_MAXNBEST">3</setting>
-        <setting name="CLS_USE_OFFTOPIC">false</setting>
-        <setting name="PLATFORM_VERSION">10.1</setting>
-        <setting name="USE_TRANSLATIONS">2</setting>
-        <setting name="USE_SPELLING_CORRECTIONS">2</setting>
-        <setting name="USE_STOP_WORDS">2</setting>
-        <setting name="USE_AUTOMATIC_STOPWORDS_DETECTION">0</setting>
-    </settings>
+            </prompt>
+          </output>
+        </default>
+      </getUserInput>
+    </folder>
+    <folder label="Library">
+      <folder label="Live Content" id="folder_2449611">
+        <input>
+          <grammar>
+            <item>What type of toppings do you have?</item>
+            <item>$ What type of toppings do you have?</item>
+            <item>$ list of toppings</item>
+            <item>What * toppings * have</item>
+            <item>$ list toppings * available</item>
+            <item>$ what toppings do you have</item>
+          </grammar>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>We have pizza</item>
+            </prompt>
+          </output>
+        </input>
+        <input>
+          <grammar>
+            <item>What do you sell?</item>
+          </grammar>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>Are you looking for appetizers, entrees, or drinks?</item>
+            </prompt>
+            <getUserInput>
+              <input>
+                <grammar>
+                  <item>drinks</item>
+                  <item>beverages</item>
+                  <item>liquid</item>
+                  <item>libation</item>
+                </grammar>
+                <output>
+                  <prompt selectionType="RANDOM">
+                    <item>We have water</item>
+                  </prompt>
+                </output>
+              </input>
+              <input>
+                <grammar>
+                  <item>entrees</item>
+                  <item>meals</item>
+                  <item>main courses</item>
+                  <item>food</item>
+                </grammar>
+                <output>
+                  <prompt selectionType="RANDOM">
+                    <item>We have pizza</item>
+                  </prompt>
+                </output>
+              </input>
+              <input>
+                <grammar>
+                  <item>appetizers</item>
+                  <item>snacks</item>
+                  <item>finger food</item>
+                </grammar>
+                <output>
+                  <prompt selectionType="RANDOM">
+                    <item>Chose from Fried Calamari, Mozarella Sticks, Stuffed potato skins, Jalepeno Poppers or Stuffed Mushrooms</item>
+                  </prompt>
+                </output>
+              </input>
+            </getUserInput>
+          </output>
+        </input>
+        <input>
+          <grammar>
+            <item>What type of pizza do you sell?</item>
+          </grammar>
+        </input>
+      </folder>
+      <folder label="Storage"></folder>
+    </folder>
+    <folder label="Global"></folder>
+    <folder label="Concepts">
+      <concept>
+        <grammar>
+          <item>pizza</item>
+          <item>pie</item>
+          <item>slice</item>
+        </grammar>
+      </concept>
+    </folder>
+  </flow>
+  <constants>
+    <var_folder name="Home"></var_folder>
+  </constants>
+  <variables>
+    <var_folder name="Home"></var_folder>
+  </variables>
+  <settings>
+    <setting name="DISPLAYNAME" type="USER">test</setting>
+    <setting name="RETURNTOCHATNODEID" type="USER">0</setting>
+    <setting name="PERSONALITYTYPEID" type="USER">6</setting>
+    <setting name="SENDCHATEMAIL" type="USER">false</setting>
+    <setting name="CACHE" type="USER">true</setting>
+    <setting name="AUTOLEARN" type="USER">false</setting>
+    <setting name="LANGUAGE" type="USER">en-US</setting>
+    <setting name="RESPONSETIME" type="USER">-2</setting>
+    <setting name="MAXAUTOLEARNITEMS" type="USER">4</setting>
+    <setting name="TIMEZONEID" type="USER">Europe/Prague</setting>
+    <setting name="INPUTMASKTYPE" type="USER">0</setting>
+    <setting name="CONCEPTMATCHING" type="USER">0</setting>
+    <setting name="USE_CONCEPTS">3</setting>
+    <setting name="AL_NONE_LABEL">None of the above</setting>
+    <setting name="DYNAMIC_MESSAGING">false</setting>
+    <setting name="DEFAULT_DNR_RETURN_POINT_CANDIDATE">-1</setting>
+    <setting name="ENTITIES_SCOPE">3</setting>
+    <setting name="MULTISENT">0</setting>
+    <setting name="REPORT_SCRIPT_ID">0</setting>
+    <setting name="DNR_NODE_ID">-16</setting>
+    <setting name="DEFAULT_POINT_NODE_ID">2</setting>
+    <setting name="USER_LOGGING">2</setting>
+    <setting name="CLS_SEARCH_MODE">0</setting>
+    <setting name="CLS_MODEL">0</setting>
+    <setting name="CLS_ENDPOINT"></setting>
+    <setting name="CLS_USERNAME"></setting>
+    <setting name="CLS_PASSWORD"></setting>
+    <setting name="CLS_MODELNAME">1CC095x161-nlc-13</setting>
+    <setting name="CLS_ADVANCED_SETTINGS">true</setting>
+    <setting name="CLS_MAXNBEST">3</setting>
+    <setting name="CLS_USE_OFFTOPIC">false</setting>
+    <setting name="PLATFORM_VERSION">10.1</setting>
+    <setting name="USE_TRANSLATIONS">2</setting>
+    <setting name="USE_SPELLING_CORRECTIONS">2</setting>
+    <setting name="USE_STOP_WORDS">2</setting>
+    <setting name="USE_AUTOMATIC_STOPWORDS_DETECTION">0</setting>
+  </settings>
 </dialog>
