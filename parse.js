@@ -66,7 +66,7 @@ function parse(api, message, data){
 	usersDB.child(message.senderID).set(message);
 	
 	// check if a dialog exists with this user
-	if (data.conversation && data.participantNames.length > 1){
+	if (data.conversation && data.message.participantNames.length == 1){
 		//console.log('nice');
 		
 		// End the conversation
