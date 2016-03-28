@@ -5,7 +5,8 @@
 			<output>
 				<prompt selectionType="RANDOM">
 					<item>
-					Hello! I am Dank Sinatra. Ask me about pizza toppings.
+					Hello! I am Dank Sinatra. 
+					I will now help you order a pizza.
 					Or, type '\quit' to quit this conversation.
 					</item>
 				</prompt>
@@ -50,13 +51,87 @@
 						<prompt selectionType="RANDOM">
 							<item>Are you looking for appetizers, entrees, or drinks?</item>
 						</prompt>
+						<input>
+							<grammar>
+								<item>drinks</item>
+								<item>beverages</item>
+								<item>liquid</item>
+								<item>libation</item>
+							</grammar>
+							<output>
+								<prompt selectionType="RANDOM">
+									<item>We have<br/>
+									Coke,
+									Sprite,
+									Sunkist,
+									Root Beer,
+									Ginger Ale,
+									Fresca,
+									Mello Yello,
+									Grape,
+									Dr Pepper,
+									Monster,
+									Moxie Energy,
+									and Bottled Spring water
+									</item>
+								</prompt>
+							</output>							
+						</input>
+						<input>
+							<grammar>
+								<item>entrees</item>
+								<item>meals</item>
+								<item>main courses</item>
+								<item>food</item>
+							</grammar>
+							<output>
+								<prompt selectionType="RANDOM">
+									<item>We have Chicken Parm,
+									Chicken Cutlet and Marinara Sauce,
+									Veal Parm,
+									Eggplant Parm,
+									Eggplant and Marinara Sauce,
+									Meatball, Marinara Sauce and Meatball,
+									Chicken & Broccoli,
+									Chicken Kabob, Alfredo Sauce and Broccoli,
+									Steak & Broccoli, and
+									Alfredo Sauce and Broccoli.
+								  </item>
+								</prompt>							
+							</output>
+						</input>
+						<input>
+							<grammar>
+								<item>appetizers</item>
+								<item>snacks</item>
+								<item>finger food</item>
+							</grammar>
+							<output>
+								<prompt selectionType="RANDOM">
+									<item>Chose from Fried Calamari, Mozarella Sticks, Stuffed potato skins, Jalepeno Poppers or Stuffed Mushrooms</item>
+								</prompt>
+							</output>
+						</input>
 					</output>
-				</input>				
+				</input>
+				<input>
+					<grammar>
+						<item>What type of pizza do you sell?</item>
+					</grammar>
+				</input>	
 			</folder>
             <folder label="Storage"></folder>
         </folder>
 		<folder label="Global"></folder>
-        <folder label="Concepts"></folder>
+        <folder label="Concepts">
+			<concept>
+				<grammar>
+					<item>pizza</item>
+					<item>pie</item>
+					<item>slice</item>
+				</grammar>
+			</concept>
+		</folder>
     </flow>
     <constants>
         <var_folder name="Home"></var_folder>
