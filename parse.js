@@ -75,7 +75,7 @@ function parse(api, message, data){
 		//console.log('nice');
 		
 		// End the conversation
-		if (message.body == '\\quit'){
+		if (message.body == '\\quit' || message.senderID!=message.threadID){
 			return;
 		}
 		
