@@ -18,9 +18,9 @@
           <output>
             <prompt selectionType="RANDOM">
               <item>
-								I'm sorry, I did not understand your question.
-								Please ask again.
-							</item>
+				I'm sorry, I did not understand your question.
+				Please ask again.
+				</item>
             </prompt>
           </output>
         </default>
