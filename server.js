@@ -143,6 +143,7 @@ setInterval(function(){
 }, 60 * 12 * 60 * 1000); // Every 12 hours
 
 
+/*
 setInterval(function(){
 	// Post the URL to a picture of a trash can
 	var options = {
@@ -168,6 +169,7 @@ setInterval(function(){
 		});
 	});
 }, 60 * 10 * 60 * 1000); // Every 10 hours
+*/
 
 
 var db_clean_rule = new schedule.RecurrenceRule();

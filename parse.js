@@ -29,12 +29,7 @@ var usersDB = db.child("users");
 var chatsDB = db.child("chats");
 var converseDB = db.child("Conversations");
 
-/*	
-	TODO: 
-	1. Simulate conversation. Use IDs and DB
-	2. Give a random greeting
-	2. Magic 8 ball
-*/
+
 function parse(api, message, data){
 	
 	console.log(data);
