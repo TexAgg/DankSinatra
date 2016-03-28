@@ -5,9 +5,7 @@
       <output>
         <prompt selectionType="RANDOM">
          	<item>
-		  	Hello! I am Dank Sinatra. 
-			I will now help you order a pizza.
-			Or, type '\quit' to quit this conversation.
+		  	Hello! I am Dank Sinatra. I will now help you order a pizza. Or, type '\quit' to quit this conversation.
 			</item>
         </prompt>
         <goto ref="getUserInput_2449614"></goto>
@@ -18,8 +16,7 @@
           <output>
             <prompt selectionType="RANDOM">
               <item>
-				I'm sorry, I did not understand your question.
-				Please ask again.
+				I'm sorry, I did not understand your question. Please ask again.
 				</item>
             </prompt>
           </output>
