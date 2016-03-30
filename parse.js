@@ -291,6 +291,7 @@ function parse(api, message, data){
 		api.sendMessage(response, message.threadID);
 	}	
 	
+	/*
 	// Send speech
 	else if (choices.speak.test(message.body)){
 		message_reqs.push(message);
@@ -310,6 +311,7 @@ function parse(api, message, data){
 			attachment: fs.createReadStream(__dirname + '/output.wav') || {}
 		}, message.threadID);	
 	}
+	*/
 }
 
 module.exports.parse = parse;
