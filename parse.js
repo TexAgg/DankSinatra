@@ -16,11 +16,17 @@ const greetings = require('greetings');
 const shake_insult = require('shakespeare-insult');
 const emoji = require('node-emoji');
 const watson = require('watson-developer-cloud');
+const fs = require('fs'); 
 
 var dialog_service = watson.dialog({
 	username: process.env.dialog_username,
 	password: process.env.dialog_password,
 	version: 'v1'
+});
+var text_to_speech = watson.text_to_speech({
+	username: process.env.text_to_speech_username,
+  	password: process.env.text_to_speech_password,
+  	version: 'v1',
 });
 
 var db = new Firebase(process.env.DANK_SINATRA_FIREBASE);
@@ -56,7 +62,8 @@ function parse(api, message, data){
 		
 		love: /\\love/,
 		
-		convo: /\\convo/
+		convo: /\\convo/,
+		speak: /\\speak/
 	};
 	
 	var response = '';
@@ -75,16 +82,16 @@ function parse(api, message, data){
 		}
 		
 		var params = {
-		conversation_id: data.conversation.conversation_id,
-		dialog_id: process.env.dialog_id,
-		client_id: data.conversation.client_id,
-		input:     message.body
+			conversation_id: data.conversation.conversation_id,
+			dialog_id: process.env.dialog_id,
+			client_id: data.conversation.client_id,
+			input:     message.body
 		};
 		dialog_service.conversation(params, function(err, conversation) {
 		if (err)
 			console.log(err)
 		else
-			console.log(conversation);
+			//console.log(conversation);
 			chatsDB.child(message.threadID).set({
 				message: message,
 				conversation: conversation
@@ -147,7 +154,7 @@ function parse(api, message, data){
 	
 	// Send the weather at a ZIP code
 	else if (choices.weather.test(message.body)){
-		var zip_code = message.body.replace(choices.weather,"");
+		var zip_code = message.body.replace(choices.weather, "");
 		zip_code = zip_code.trim();
 		console.log(zip_code);
 		
@@ -276,12 +283,33 @@ function parse(api, message, data){
 		});
 	}
 	
+	// Tell me you love me
 	else if (choices.love.test(message.body)){
 		message_reqs.push(message);
 		response = "Don't worry, " + message.senderName + ", I love you!";
 		console.log("Sending " + response);
-		api.sendMessage(response,message.threadID);
+		api.sendMessage(response, message.threadID);
 	}	
+	
+	// Send speech
+	else if (choices.speak.test(message.body)){
+		message_reqs.push(message);
+		
+		//var speech = message.body.replace(choices.speak, "");
+		var params = {
+			text: message.body.replace(choices.speak, ""),
+			accept: 'audio/wav'
+		};
+
+		// Pipe the synthesized text to a file
+		text_to_speech.synthesize(params).pipe(fs.createWriteStream('output.wav'));		
+		
+		console.log("Sending output.wav");
+		api.sendMessage({
+			body: "Here is your speech", 
+			attachment: fs.createReadStream(__dirname + '/output.wav') || {}
+		}, message.threadID);	
+	}
 }
 
 module.exports.parse = parse;
