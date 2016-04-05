@@ -6,12 +6,20 @@ I hope to one day make him a full-on source of information, such as Siri (only n
 
 ---
 
-## View him in action!
+# View him in action!
 * [Facebook](https://www.facebook.com/profile.php?id=100010461758967)
 * [Wiki](https://bitbucket.org/gaikema/danksinatra/wiki/Home)
 
 ---
 
-## Disclaimer
+# Instruction
+In the command line, type
+```
+$ cf push danksinatra
+```
+
+---
+
+# Disclaimer
 The code is not well written.
 This is a personal project mostly meant to familiarize myself with public API's and Node.JS.
