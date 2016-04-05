@@ -77,11 +77,12 @@ function parse(api, message, data){
 		return;
 	
 	// check if a dialog exists with this user
-	else if (data.conversation && data.message.participantNames.length == 1){
+	else if (data.conversation && !data.message.participantsNames){
 		//console.log('nice');
 		
 		// End the conversation
 		if (message.body == '\\quit'){
+			//api.sendMessage({body: "Bye!"}, message.threadID);
 			return;
 		}
 		
