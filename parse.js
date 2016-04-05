@@ -38,7 +38,7 @@ var converseDB = db.child("Conversations");
 
 function parse(api, message, data){
 	
-	console.log(data);
+	//console.log(data);
 	
 	// All commands go here
 	var choices = {
