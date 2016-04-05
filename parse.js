@@ -72,11 +72,12 @@ function parse(api, message, data){
 	chatsDB.child(message.threadID).set(message);
 	usersDB.child(message.senderID).set(message);
 	
+	// Quit if there is no body
 	if (!message.body)
 		return;
 	
 	// check if a dialog exists with this user
-	if (data.conversation && data.message.participantNames.length == 1){
+	else if (data.conversation && data.message.participantNames.length == 1){
 		//console.log('nice');
 		
 		// End the conversation
