@@ -141,6 +141,7 @@ function parse(api, message, data){
 		message_reqs.push(message);
 		console.log("Sending " + response);		
 		api.sendMessage({body: response}, message.threadID);
+		//api.sendMessage({body: "Check out ", url: "https://bitbucket.org/gaikema/danksinatra/wiki/Home"}, message.threadID);
 	}
 	
 	// Send a face
@@ -156,7 +157,7 @@ function parse(api, message, data){
 	else if (choices.weather.test(message.body)){
 		var zip_code = message.body.replace(choices.weather, "");
 		zip_code = zip_code.trim();
-		console.log(zip_code);
+		//console.log(zip_code);
 		
 		http.get('http://api.wunderground.com/api/'+process.env.WEATHER_API_KEY+'/conditions/q/' + zip_code + '.json',function(res){
 			var body = '';
@@ -175,7 +176,7 @@ function parse(api, message, data){
 			
 			res.on('end', function(){
 				var weather_data = JSON.parse(body);
-				console.log(weather_data);
+				//console.log(weather_data);
 				
 				if (!weather_data.response.error){
 					temp = weather_data.current_observation.temp_f;
