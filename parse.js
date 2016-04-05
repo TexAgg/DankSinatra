@@ -68,6 +68,11 @@ function parse(api, message, data){
 	
 	var response = '';
 	
+	// Very bad fix for undefined fields
+	if (!message.body) message.body = {};
+	// No attachments!
+	message.attachments = [];
+	
 	// Add child for the threadID and append message there
 	chatsDB.child(message.threadID).set(message);
 	usersDB.child(message.senderID).set(message);
