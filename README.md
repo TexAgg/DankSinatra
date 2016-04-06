@@ -1,3 +1,4 @@
+![https://img.shields.io/badge/Status-Online-green.svg](https://img.shields.io/badge/Status-Online-green.svg)
 [![HitCount](https://hitt.herokuapp.com/TexAgg/DankSinatra.svg)](https://github.com/TexAgg/DankSinatra)
 
 ---
