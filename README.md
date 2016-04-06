@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/TexAgg/DankSinatra.svg?branch=master)](https://travis-ci.org/TexAgg/DankSinatra)
 [![HitCount](https://hitt.herokuapp.com/TexAgg/DankSinatra.svg)](https://github.com/TexAgg/DankSinatra)
 
 ---
