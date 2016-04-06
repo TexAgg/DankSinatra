@@ -227,7 +227,7 @@ function parse(api, message, data){
 	
 	// Send an insult
 	else if (choices.insult.test(message.body)){
-		response = message.senderName + " is a " + shake_insult.random() + "!";
+		response = "You are a " + shake_insult.random() + "!";
 		message_reqs.push(message);		
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
@@ -264,7 +264,7 @@ function parse(api, message, data){
 	
 	// Send a random greeting
 	else if (choices.greet.test(message.body)){
-		response = greetings.random() + ", " + message.senderName + "!";
+		response = greetings.random() + ", you!";
 		message_reqs.push(message);
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
