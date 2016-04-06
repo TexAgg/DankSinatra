@@ -70,8 +70,8 @@ function parse(api, message, data){
 	
 	// Very bad fix for undefined fields
 	if (!message.body) message.body = {};
-	// No attachments!
-	message.attachments = [];
+		// No attachments!
+		message.attachments = [];
 	
 	// Add child for the threadID and append message there
 	chatsDB.child(message.threadID).set(message);
@@ -82,12 +82,12 @@ function parse(api, message, data){
 		return;
 	
 	// check if a dialog exists with this user
-	else if (data.conversation && !data.message.participantsNames){
+	else if (data.conversation && !data.message.isGroup){
 		//console.log('nice');
 		
 		// End the conversation
 		if (message.body == '\\quit'){
-			//api.sendMessage({body: "Bye!"}, message.threadID);
+			api.sendMessage({body: "Bye!"}, message.threadID);
 			return;
 		}
 		
@@ -110,7 +110,7 @@ function parse(api, message, data){
 		});		
 	}
 	
-	else if (choices.convo.test(message.body)){
+	else if (choices.convo.test(message.body) && !message.isGroup){
 		// Start new conversation
 		
 		var converse_params = {
