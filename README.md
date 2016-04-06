@@ -19,7 +19,3 @@ I hope to one day make him a full-on source of information, such as Siri (only n
 
 # Disclaimer
 Spaghetti code.
-
----
-
-![http://githubbadge.appspot.com/TexAgg](http://githubbadge.appspot.com/TexAgg)
