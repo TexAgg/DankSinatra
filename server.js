@@ -89,15 +89,7 @@ login({email: process.env.EMAIL, password: process.env.PASSWORD}, {forceLogin: t
 		// Echo response
         //api.sendMessage(message.body, message.threadID);
 		
-		/*
-		console.log(message);
-		console.log("\nIterating now\n");
-		for (i in message){
-			console.log(i);
-			i = i || {};
-		}
-		console.log("\n" + message);
-		*/
+		// Temporary hotfix until attachments are supported
 		message.attachments = {};
 		
 		chatsDB.once('value', function(snapshot){
