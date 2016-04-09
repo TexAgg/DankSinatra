@@ -68,12 +68,12 @@ function parse(api, message, data){
 	
 	var response = '';
 	
+	// Quit if there is no body
+	message.body = message.body || {};
+	
 	// Add child for the threadID and append message there
 	chatsDB.child(message.threadID).set(message);
 	usersDB.child(message.senderID).set(message);
-	
-	// Quit if there is no body
-	message.body = message.body || {};
 	
 	// check if a dialog exists with this user
 	if (data.conversation && !data.message.isGroup){
