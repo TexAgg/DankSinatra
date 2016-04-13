@@ -37,6 +37,7 @@ var converseDB = db.child("Conversations");
 
 
 function parse(api, message, data){
+	data = data || {};
 	
 	//console.log(data);
 	
@@ -76,7 +77,7 @@ function parse(api, message, data){
 	usersDB.child(message.senderID).set(message);
 	
 	// check if a dialog exists with this user
-	if (data.conversation && !data.message.isGroup){
+	if (!data && !message.isGroup && data.conversation){
 		//console.log('nice');
 		
 		// End the conversation
