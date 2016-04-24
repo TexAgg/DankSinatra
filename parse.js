@@ -212,6 +212,8 @@ function parse(api, message, data){
 		var result = Math.floor(Math.random()*upper_limit+1);
 
 		response += "You rolled a " + result + ".\n";
+		console.log(response);
+		api.sendMessage(response, message.threadID);
 	}
 	
 	// Send the date
