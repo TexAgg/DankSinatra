@@ -64,7 +64,9 @@ function parse(api, message, data){
 		love: /\\love/,
 		
 		convo: /\\convo/,
-		speak: /\\speak/
+		speak: /\\speak/,
+
+		roll: /\\roll/
 	};
 	
 	var response = '';
@@ -201,6 +203,15 @@ function parse(api, message, data){
 				}
 			});
 		});
+	}
+
+	//roll a random number between 1 and argument
+	else if(choices.roll.test(message.body)){
+		var upper_limit = message.body.replace(choices.roll, "");
+		upper_limit = upper_limit.trim();
+		var result = Math.floor(Math.random()*upper_limit+1);
+
+		response += "You rolled a " + result + ".\n";
 	}
 	
 	// Send the date
