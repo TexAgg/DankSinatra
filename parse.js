@@ -292,7 +292,7 @@ function parse(api, message, data){
 	// Tell me you love me
 	else if (choices.love.test(message.body)){
 		message_reqs.push(message);
-		response = "Don't worry, " + message.senderName + ", I love you!";
+		response = "Don't worry, I love you!";
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
 	}	
