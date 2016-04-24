@@ -306,7 +306,7 @@ function parse(api, message, data){
 	else if (choices.love.test(message.body)){
 		message_reqs.push(message);
 		//response = "Don't worry, I love you!";
-		var responses = {
+		var responses = [
 			"Don't worry, I love you!",
 			"I love you!",
 			"You're my favorite person.",
@@ -314,7 +314,7 @@ function parse(api, message, data){
 			"You're so cute!",
 			"<3",
 			"<3 <3 <3",
-		};
+		];
 		response = responses[Math.floor(Math.random() * responses.length)];
 		console.log("Sending " + response);
 		api.sendMessage(response, message.threadID);
